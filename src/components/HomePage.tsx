@@ -23,6 +23,7 @@ import {
   SiGrafana,
   SiConfluence,
   SiJira,
+  SiEtcd,
   SiKubernetes,
   SiLinux,
   SiMongodb,
@@ -33,6 +34,7 @@ import {
   SiPython,
   SiRedis,
   SiRuby,
+  SiTekton,
   SiApachecassandraHex,
   SiApachecouchdbHex,
   SiClaudeHex,
@@ -45,6 +47,7 @@ import {
   SiGrafanaHex,
   SiConfluenceHex,
   SiJiraHex,
+  SiEtcdHex,
   SiKubernetesHex,
   SiLinuxHex,
   SiMongodbHex,
@@ -55,6 +58,7 @@ import {
   SiPythonHex,
   SiRedisHex,
   SiRubyHex,
+  SiTektonHex,
 } from "@icons-pack/react-simple-icons";
 
 const BLUR_FADE_DELAY = 0.04;
@@ -73,11 +77,12 @@ function SkillLogo({ name }: { name: string }) {
     Java: { icon: SiOpenjdk, color: SiOpenjdkHex },
     Shell: { icon: SiGnubash, color: SiGnubashHex },
     Kubernetes: { icon: SiKubernetes, color: SiKubernetesHex },
+    etcd: { icon: SiEtcd, color: SiEtcdHex },
+    Tekton: { icon: SiTekton, color: SiTektonHex },
+    Linux: { icon: SiLinux, color: SiLinuxHex },
     Docker: { icon: SiDocker, color: SiDockerHex },
     GitOps: { icon: SiGit, color: SiGitHex },
     "CI/CD": { icon: SiGithubactions, color: SiGithubactionsHex },
-    "Cloud infrastructure": { icon: SiLinux, color: SiLinuxHex },
-    "Bare metal": { icon: SiLinux, color: SiLinuxHex },
     MySQL: { icon: SiMysql, color: SiMysqlHex },
     MongoDB: { icon: SiMongodb, color: SiMongodbHex },
     Couchbase: { icon: SiApachecouchdb, color: SiApachecouchdbHex },
@@ -95,6 +100,7 @@ function SkillLogo({ name }: { name: string }) {
   const logoMap: Record<string, string> = {
     ChatGPT: "/logos/chatgpt.svg",
     CoreDNS: "/logos/coredns.svg",
+    DNS: "/logos/dns.svg",
     Gemini: "/logos/gemini.svg",
     Claude: "/logos/claude.svg",
   };

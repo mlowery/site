@@ -40,6 +40,28 @@ const sectionComponents: Record<string, React.ReactNode> = {
       </div>
     </section>
   ),
+  impact: (
+    <section id="impact">
+      <div className="flex min-h-0 flex-col gap-y-4">
+        <BlurFade delay={BLUR_FADE_DELAY * 5}>
+          <h2 className="text-xl font-bold">{DATA.sections.impact.heading}</h2>
+        </BlurFade>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {DATA.impact.map((item, id) => (
+            <BlurFade key={item.label} delay={BLUR_FADE_DELAY * 6 + id * 0.05}>
+              <div className="h-full rounded-lg border bg-background p-4 ring-2 ring-border/20">
+                <div className="text-2xl font-semibold tracking-tight">{item.value}</div>
+                <div className="mt-1 text-sm font-medium">{item.label}</div>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  {item.description}
+                </p>
+              </div>
+            </BlurFade>
+          ))}
+        </div>
+      </div>
+    </section>
+  ),
   education: (
     <section id="education">
       <div className="flex min-h-0 flex-col gap-y-6">
@@ -149,6 +171,21 @@ export default function HomePage() {
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
               />
+              <BlurFade delay={BLUR_FADE_DELAY * 2}>
+                <div className="mt-4 grid gap-2 sm:grid-cols-3">
+                  {DATA.impact.map((item) => (
+                    <div
+                      key={item.label}
+                      className="rounded-lg border bg-background/80 px-3 py-2 ring-2 ring-border/20"
+                    >
+                      <div className="text-lg font-semibold leading-none">{item.value}</div>
+                      <div className="mt-1 text-xs leading-snug text-muted-foreground">
+                        {item.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </BlurFade>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
               <Avatar className="size-24 md:size-32 border rounded-full shadow-lg ring-4 ring-muted">

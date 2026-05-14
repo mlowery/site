@@ -181,20 +181,49 @@ const sectionComponents: Record<string, React.ReactNode> = {
         <div className="grid gap-3 sm:grid-cols-2">
           {DATA.openSource.map((item, id) => (
             <BlurFade key={item.name} delay={BLUR_FADE_DELAY * 8 + id * 0.05}>
-              <a
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block h-full rounded-lg border bg-background p-4 ring-2 ring-border/20 transition-colors hover:bg-muted/40"
-              >
+              <div className="h-full rounded-lg border bg-background p-4 ring-2 ring-border/20">
                 <div className="flex items-center justify-between gap-3">
                   <h3 className="text-sm font-semibold">{item.name}</h3>
-                  <ArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-1 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    View all
+                    <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </a>
                 </div>
                 <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
                   {item.description}
                 </p>
-              </a>
+                <div className="mt-4 grid gap-3">
+                  {item.highlights.map((highlight) => (
+                    <a
+                      key={highlight.url}
+                      href={highlight.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block rounded-md border border-border/70 bg-muted/20 p-3 transition-colors hover:bg-muted/50"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="min-w-0">
+                          <div className="text-[11px] font-medium uppercase tracking-normal text-muted-foreground">
+                            {highlight.project}
+                          </div>
+                          <div className="mt-1 text-sm font-semibold leading-snug">
+                            {highlight.title}
+                          </div>
+                        </div>
+                        <ArrowUpRight className="mt-0.5 size-3.5 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      </div>
+                      <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                        {highlight.detail}
+                      </p>
+                    </a>
+                  ))}
+                </div>
+              </div>
             </BlurFade>
           ))}
         </div>

@@ -132,11 +132,71 @@ export const DATA = {
       name: "GitHub contributions",
       url: "https://github.com/search?q=author%3Amlowery",
       description: "Public contributions across infrastructure and backend ecosystems.",
+      highlights: [
+        {
+          project: "CoreDNS",
+          title: "CoreDNS Kubernetes plugin namespace performance",
+          url: "https://github.com/coredns/coredns/pull/4767",
+          detail:
+            "Merged a Kubernetes plugin change that replaced namespace list scans with cache lookups and reduced namespace cache memory for clusters with 10K+ namespaces.",
+        },
+        {
+          project: "CoreDNS",
+          title: "CoreDNS Prometheus metric docs",
+          url: "https://github.com/coredns/coredns/pull/3029",
+          detail:
+            "Fixed incorrect `response_rcode_count_total` metric references in forward and gRPC plugin documentation.",
+        },
+        {
+          project: "Kubernetes Cluster Registry",
+          title: "Cluster registry API server RBAC fix",
+          url: "https://github.com/kubernetes-retired/cluster-registry/pull/204",
+          detail:
+            "Corrected ClusterRole resources for the cluster registry API server so the generated access rules matched the API resource names.",
+        },
+        {
+          project: "Quay",
+          title: "RadosGW storage provider chunk sizing",
+          url: "https://github.com/quay/quay/pull/3958",
+          detail:
+            "Opened a Quay storage provider change adding `minimum_chunk_size_mb` configurability for RadosGW uploads.",
+        },
+      ],
     },
     {
       name: "OpenDev reviews",
       url: "https://review.opendev.org/q/owner:mlowery@ebaysf.com",
       description: "OpenStack-era code reviews and project contributions.",
+      highlights: [
+        {
+          project: "OpenStack Trove",
+          title: "OpenStack Trove cluster task manager",
+          url: "https://review.opendev.org/c/openstack/trove/+/113692",
+          detail:
+            "Merged the cluster task manager implementation for OpenStack Trove, adding the orchestration layer for database cluster lifecycle work.",
+        },
+        {
+          project: "OpenStack Trove Integration",
+          title: "Trove restart workflow reliability",
+          url: "https://review.opendev.org/c/openstack/trove-integration/+/123582",
+          detail:
+            "Improved Trove integration tooling by reusing the existing screen window when restarting Trove services during development and testing.",
+        },
+        {
+          project: "OpenStack Trove Integration",
+          title: "Conditional config loading",
+          url: "https://review.opendev.org/c/openstack/trove-integration/+/119880",
+          detail:
+            "Merged a Trove integration change to load configuration parameters conditionally, reducing friction in local and gate workflows.",
+        },
+        {
+          project: "OpenDev System Config",
+          title: "Developer documentation CSS fix",
+          url: "https://review.opendev.org/c/opendev/system-config/+/71752",
+          detail:
+            "Fixed list-item styling in OpenDev system documentation while preserving the Jenkins-specific CSS exception.",
+        },
+      ],
     },
   ],
   speaking: [

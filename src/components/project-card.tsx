@@ -29,6 +29,8 @@ interface Props {
   description: string;
   dates: string;
   tags: readonly string[];
+  icon?: React.ReactNode;
+  iconTone?: string;
   image?: string;
   video?: string;
   links?: readonly {
@@ -45,6 +47,8 @@ export function ProjectCard({
   description,
   dates,
   tags,
+  icon,
+  iconTone,
   image,
   video,
   links,
@@ -57,55 +61,69 @@ export function ProjectCard({
         className
       )}
     >
-      <div className="relative shrink-0">
-        <a
-          href={href || "#"}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block"
-        >
-          {video ? (
-            <video
-              src={video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-48 object-cover"
-            />
-          ) : image ? (
-            <ProjectImage src={image} alt={title} />
-          ) : (
-            <div className="w-full h-48 bg-muted" />
-          )}
-        </a>
-        {links && links.length > 0 && (
-          <div className="absolute top-2 right-2 flex flex-wrap gap-2">
-            {links.map((link, idx) => (
-              <a
-                href={link.href}
-                key={idx}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e: React.MouseEvent) => e.stopPropagation()}
-              >
-                <Badge
-                  className="flex items-center gap-1.5 text-xs bg-black text-white hover:bg-black/90"
-                  variant="default"
+      {!icon && (
+        <div className="relative shrink-0">
+          <a
+            href={href || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block"
+          >
+            {video ? (
+              <video
+                src={video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-48 object-cover"
+              />
+            ) : image ? (
+              <ProjectImage src={image} alt={title} />
+            ) : (
+              <div className="w-full h-48 bg-muted" />
+            )}
+          </a>
+          {links && links.length > 0 && (
+            <div className="absolute top-2 right-2 flex flex-wrap gap-2">
+              {links.map((link, idx) => (
+                <a
+                  href={link.href}
+                  key={idx}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e: React.MouseEvent) => e.stopPropagation()}
                 >
-                  {link.icon}
-                  {link.type}
-                </Badge>
-              </a>
-            ))}
-          </div>
-        )}
-      </div>
+                  <Badge
+                    className="flex items-center gap-1.5 text-xs bg-black text-white hover:bg-black/90"
+                    variant="default"
+                  >
+                    {link.icon}
+                    {link.type}
+                  </Badge>
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
       <div className="p-6 flex flex-col gap-3 flex-1">
         <div className="flex items-start justify-between gap-2">
-          <div className="flex flex-col gap-1">
-            <h3 className="font-semibold">{title}</h3>
-            <time className="text-xs text-muted-foreground">{dates}</time>
+          <div className="flex min-w-0 items-start gap-3">
+            {icon && (
+              <div
+                className={cn(
+                  "flex size-10 shrink-0 items-center justify-center rounded-lg",
+                  iconTone || "bg-muted text-foreground"
+                )}
+              >
+                {icon}
+              </div>
+            )}
+            <div className="flex min-w-0 flex-col gap-1">
+              <h3 className="font-semibold">{title}</h3>
+              {dates && <time className="text-xs text-muted-foreground">{dates}</time>}
+            </div>
           </div>
           <a
             href={href || "#"}

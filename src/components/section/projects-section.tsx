@@ -43,6 +43,8 @@ export default function ProjectsSection() {
                                 description={project.description}
                                 dates={project.dates}
                                 tags={project.technologies}
+                                icon={project.icon}
+                                iconTone={project.iconTone}
                                 image={project.image}
                                 video={project.video}
                                 links={project.links}
@@ -54,4 +56,3 @@ export default function ProjectsSection() {
         </section>
     );
 }
-

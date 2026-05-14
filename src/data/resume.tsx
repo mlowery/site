@@ -1,10 +1,30 @@
 import { Icons } from "@/components/icons";
-import { House } from "lucide-react";
+import { Binoculars, File, House, Mic, Play } from "lucide-react";
 import { Python } from "@/components/ui/svgs/python";
 import { Golang } from "@/components/ui/svgs/golang";
 import { Java } from "@/components/ui/svgs/java";
 import { Docker } from "@/components/ui/svgs/docker";
 import { Kubernetes } from "@/components/ui/svgs/kubernetes";
+
+function GlueIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M9 2h6v5H9z" />
+      <path d="M10 7h4l2 4v9a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-9z" />
+      <path d="M8 14h8" />
+      <path d="M10 18h4" />
+    </svg>
+  );
+}
 
 export const DATA = {
   name: "Mat Lowery",
@@ -26,7 +46,7 @@ export const DATA = {
     education: { order: 9, enabled: true, heading: "Education" },
     skills: { order: 4, enabled: true, heading: "Skills" },
     projects: {
-      order: 7,
+      order: 10.5,
       enabled: true,
       label: "Personal Projects",
       heading: "Personal Projects",
@@ -308,7 +328,7 @@ export const DATA = {
       badges: [],
       location: "Orlando, FL",
       title: "Senior Software Engineer",
-      logoUrl: "https://www.google.com/s2/favicons?domain=hitachivantara.com&sz=128",
+      logoUrl: "/logos/pentaho.svg",
       start: "October 2006",
       end: "April 2012",
       description:
@@ -353,6 +373,8 @@ export const DATA = {
       active: true,
       description: "Personal project for practical automation; description will be tightened after inspecting the repository.",
       technologies: ["Go"],
+      icon: <Mic className="size-5" />,
+      iconTone: "bg-sky-500/10 text-sky-600 dark:text-sky-300",
       links: [
         {
           type: "Source",
@@ -370,6 +392,8 @@ export const DATA = {
       active: true,
       description: "Kubernetes workflow helper; description will be tightened after inspecting the repository.",
       technologies: ["Kubernetes", "Shell"],
+      icon: <GlueIcon className="size-5" />,
+      iconTone: "bg-amber-500/10 text-amber-700 dark:text-amber-300",
       links: [
         {
           type: "Source",
@@ -387,6 +411,8 @@ export const DATA = {
       active: true,
       description: "Container image tooling project; description will be tightened after inspecting the repository.",
       technologies: ["Containers", "OCI"],
+      icon: <Play className="size-5" />,
+      iconTone: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-300",
       links: [
         {
           type: "Source",
@@ -404,6 +430,8 @@ export const DATA = {
       active: true,
       description: "Personal development environment configuration.",
       technologies: ["Shell", "Git"],
+      icon: <File className="size-5" />,
+      iconTone: "bg-violet-500/10 text-violet-600 dark:text-violet-300",
       links: [
         {
           type: "Source",
@@ -421,6 +449,8 @@ export const DATA = {
       active: true,
       description: "kubectl workflow helper; description will be tightened after inspecting the repository.",
       technologies: ["Kubernetes", "kubectl"],
+      icon: <Binoculars className="size-5" />,
+      iconTone: "bg-rose-500/10 text-rose-600 dark:text-rose-300",
       links: [
         {
           type: "Source",

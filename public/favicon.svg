@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="8" fill="#18181b"/>
-  <text x="16" y="22" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="white" text-anchor="middle">A</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Mat Lowery favicon</title>
+  <desc id="desc">A solid blue spruce M favicon formed by two abstract mountain peaks with a flat base.</desc>
+  <rect width="512" height="512" rx="112" fill="#f7f6f2"/>
+  <path fill="#1F4E5F" d="M62 382 154 112l107 157 107-188 100 301z"/>
 </svg>

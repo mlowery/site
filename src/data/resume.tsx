@@ -222,10 +222,12 @@ export const DATA = {
   speaking: [
     {
       event: "SpringOne Americas",
+      date: "Dec 1-4, 2008",
       topic: "Spring Security usage in Pentaho product architecture",
     },
     {
       event: "OpenStack Trove Day",
+      date: "August 19, 2014",
       topic: "OpenStack Trove and database-as-a-service work",
     },
   ],
@@ -353,16 +355,16 @@ export const DATA = {
       href: "https://www.ucf.edu",
       degree: "Master's Degree, Computer Science",
       logoUrl: "https://www.google.com/s2/favicons?domain=ucf.edu&sz=128",
-      start: "",
-      end: "",
+      start: "2001",
+      end: "2003",
     },
     {
       school: "University of Central Florida",
       href: "https://www.ucf.edu",
       degree: "Bachelor's Degree, Computer Science",
       logoUrl: "https://www.google.com/s2/favicons?domain=ucf.edu&sz=128",
-      start: "",
-      end: "",
+      start: "1998",
+      end: "2001",
     },
   ],
   projects: [

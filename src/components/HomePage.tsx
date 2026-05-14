@@ -341,7 +341,12 @@ const sectionComponents: Record<string, React.ReactNode> = {
           {DATA.speaking.map((item, id) => (
             <BlurFade key={item.event} delay={BLUR_FADE_DELAY * 13 + id * 0.05}>
               <div className="rounded-lg border bg-background p-4 ring-2 ring-border/20">
-                <h3 className="text-sm font-semibold">{item.event}</h3>
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="text-sm font-semibold">{item.event}</h3>
+                  <div className="text-xs tabular-nums text-muted-foreground text-right">
+                    {item.date}
+                  </div>
+                </div>
                 <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
                   {item.topic}
                 </p>
@@ -408,7 +413,7 @@ export default function HomePage() {
                 delay={BLUR_FADE_DELAY}
                 className="text-3xl font-semibold tracking-tighter sm:text-4xl lg:text-5xl"
                 yOffset={8}
-                text={`Hi, I'm ${DATA.name.split(" ")[0]}`}
+                text={DATA.name}
               />
               <BlurFadeText
                 className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"

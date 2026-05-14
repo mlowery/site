@@ -98,6 +98,8 @@ export const DATA = {
         "Testing",
         "Runbooks",
         "Documentation",
+        "Jira",
+        "Confluence",
         "Technical mentoring",
         "Remote written collaboration",
       ],

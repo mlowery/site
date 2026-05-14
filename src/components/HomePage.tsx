@@ -88,6 +88,7 @@ function SkillLogo({ name }: { name: string }) {
   };
   const logoMap: Record<string, string> = {
     ChatGPT: "/logos/chatgpt.svg",
+    CoreDNS: "/logos/coredns.svg",
     Gemini: "/logos/gemini.svg",
     Claude: "/logos/claude.svg",
   };
@@ -105,7 +106,7 @@ function SkillLogo({ name }: { name: string }) {
     return null;
   }
 
-  return <img src={logo} alt="" className="size-4 object-contain dark:invert" />;
+  return <img src={logo} alt="" className="size-4 object-contain" />;
 }
 
 const sectionComponents: Record<string, React.ReactNode> = {

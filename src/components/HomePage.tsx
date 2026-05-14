@@ -44,7 +44,6 @@ import {
   SiOpenstack,
   SiPrometheus,
   SiPython,
-  SiRedis,
   SiRuby,
   SiTekton,
   SiApachecassandraHex,
@@ -67,7 +66,6 @@ import {
   SiOpenstackHex,
   SiPrometheusHex,
   SiPythonHex,
-  SiRedisHex,
   SiRubyHex,
   SiTektonHex,
 } from "@icons-pack/react-simple-icons";
@@ -99,9 +97,7 @@ function SkillLogo({ name }: { name: string }) {
     "Container registries": { icon: Boxes, color: "currentColor" },
     MySQL: { icon: SiMysql, color: SiMysqlHex },
     MongoDB: { icon: SiMongodb, color: SiMongodbHex },
-    Couchbase: { icon: SiApachecouchdb, color: SiApachecouchdbHex },
     Cassandra: { icon: SiApachecassandra, color: SiApachecassandraHex },
-    Redis: { icon: SiRedis, color: SiRedisHex },
     "OpenStack Trove": { icon: SiOpenstack, color: SiOpenstackHex },
     Prometheus: { icon: SiPrometheus, color: SiPrometheusHex },
     Grafana: { icon: SiGrafana, color: SiGrafanaHex },
@@ -120,8 +116,10 @@ function SkillLogo({ name }: { name: string }) {
   const logoMap: Record<string, string> = {
     ChatGPT: "/logos/chatgpt.svg",
     CoreDNS: "/logos/coredns.svg",
+    Couchbase: "/logos/couchbase.svg",
     DNS: "/logos/dns.svg",
     Gemini: "/logos/gemini.svg",
+    Redis: "/logos/redis.svg",
     Claude: "/logos/claude.svg",
   };
 

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Redis">
+  <g fill="none" stroke-linejoin="round" stroke-width="1.6">
+    <path fill="#dc382d" stroke="#dc382d" d="M12 3 4 6.7 12 10.4l8-3.7z"/>
+    <path fill="#b92c24" stroke="#b92c24" d="m4 10.1 8 3.7 8-3.7v2.7l-8 3.7-8-3.7z"/>
+    <path fill="#8f211c" stroke="#8f211c" d="m4 15 8 3.7 8-3.7v2.3L12 21l-8-3.7z"/>
+    <path stroke="#fff" stroke-linecap="round" d="m8.2 6.7 3.8 1.7 3.8-1.7"/>
+  </g>
+</svg>

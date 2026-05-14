@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Couchbase">
+  <g fill="none" stroke-linejoin="round" stroke-width="1.6">
+    <path fill="#ed2226" stroke="#ed2226" d="M12 3 4.5 6.5 12 10l7.5-3.5z"/>
+    <path fill="#c91d21" stroke="#c91d21" d="m4.5 9.8 7.5 3.5 7.5-3.5v3.1L12 16.4l-7.5-3.5z"/>
+    <path fill="#9f171a" stroke="#9f171a" d="m4.5 14.3 7.5 3.5 7.5-3.5v3.2L12 21l-7.5-3.5z"/>
+    <path stroke="#fff" stroke-linecap="round" d="M8.4 6.5h7.2M8.4 11.1h7.2M8.4 15.7h7.2"/>
+  </g>
+</svg>

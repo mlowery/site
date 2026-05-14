@@ -80,6 +80,8 @@ export const DATA = {
         "Automation",
         "CI/CD",
         "Observability",
+        "Prometheus",
+        "Grafana",
         "Cloud infrastructure",
         "Bare metal",
         "Release automation",

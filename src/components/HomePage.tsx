@@ -10,21 +10,81 @@ import PhotosSection from "@/components/section/photos-section";
 import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
-import { Python } from "@/components/ui/svgs/python";
-import { Golang } from "@/components/ui/svgs/golang";
-import { Java } from "@/components/ui/svgs/java";
-import { Docker } from "@/components/ui/svgs/docker";
-import { Kubernetes } from "@/components/ui/svgs/kubernetes";
+import {
+  SiApachecassandra,
+  SiApachecouchdb,
+  SiClaude,
+  SiDocker,
+  SiGit,
+  SiGithubactions,
+  SiGnubash,
+  SiGo,
+  SiGooglegemini,
+  SiGrafana,
+  SiKubernetes,
+  SiLinux,
+  SiMongodb,
+  SiMysql,
+  SiOpenjdk,
+  SiOpenstack,
+  SiPrometheus,
+  SiPython,
+  SiRedis,
+  SiRuby,
+  SiApachecassandraHex,
+  SiApachecouchdbHex,
+  SiClaudeHex,
+  SiDockerHex,
+  SiGitHex,
+  SiGithubactionsHex,
+  SiGnubashHex,
+  SiGoHex,
+  SiGooglegeminiHex,
+  SiGrafanaHex,
+  SiKubernetesHex,
+  SiLinuxHex,
+  SiMongodbHex,
+  SiMysqlHex,
+  SiOpenjdkHex,
+  SiOpenstackHex,
+  SiPrometheusHex,
+  SiPythonHex,
+  SiRedisHex,
+  SiRubyHex,
+} from "@icons-pack/react-simple-icons";
 
 const BLUR_FADE_DELAY = 0.04;
 
 function SkillLogo({ name }: { name: string }) {
-  const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-    Go: Golang,
-    Python,
-    Java,
-    Docker,
-    Kubernetes,
+  const iconMap: Record<
+    string,
+    {
+      icon: React.ComponentType<{ className?: string; color?: string; size?: number | string }>;
+      color: string;
+    }
+  > = {
+    Go: { icon: SiGo, color: SiGoHex },
+    Python: { icon: SiPython, color: SiPythonHex },
+    Ruby: { icon: SiRuby, color: SiRubyHex },
+    Java: { icon: SiOpenjdk, color: SiOpenjdkHex },
+    Shell: { icon: SiGnubash, color: SiGnubashHex },
+    Kubernetes: { icon: SiKubernetes, color: SiKubernetesHex },
+    Docker: { icon: SiDocker, color: SiDockerHex },
+    GitOps: { icon: SiGit, color: SiGitHex },
+    "CI/CD": { icon: SiGithubactions, color: SiGithubactionsHex },
+    "Cloud infrastructure": { icon: SiLinux, color: SiLinuxHex },
+    "Bare metal": { icon: SiLinux, color: SiLinuxHex },
+    MySQL: { icon: SiMysql, color: SiMysqlHex },
+    MongoDB: { icon: SiMongodb, color: SiMongodbHex },
+    Couchbase: { icon: SiApachecouchdb, color: SiApachecouchdbHex },
+    Cassandra: { icon: SiApachecassandra, color: SiApachecassandraHex },
+    Redis: { icon: SiRedis, color: SiRedisHex },
+    "OpenStack Trove": { icon: SiOpenstack, color: SiOpenstackHex },
+    Observability: { icon: SiPrometheus, color: SiPrometheusHex },
+    Prometheus: { icon: SiPrometheus, color: SiPrometheusHex },
+    Grafana: { icon: SiGrafana, color: SiGrafanaHex },
+    Gemini: { icon: SiGooglegemini, color: SiGooglegeminiHex },
+    Claude: { icon: SiClaude, color: SiClaudeHex },
   };
   const logoMap: Record<string, string> = {
     ChatGPT: "/logos/chatgpt.svg",
@@ -32,10 +92,11 @@ function SkillLogo({ name }: { name: string }) {
     Claude: "/logos/claude.svg",
   };
 
-  const Icon = iconMap[name];
+  const iconConfig = iconMap[name];
 
-  if (Icon) {
-    return <Icon className="size-4 rounded overflow-hidden object-contain" />;
+  if (iconConfig) {
+    const Icon = iconConfig.icon;
+    return <Icon className="size-4 shrink-0" color={iconConfig.color} />;
   }
 
   const logo = logoMap[name];
@@ -215,21 +276,6 @@ export default function HomePage() {
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
               />
-              <BlurFade delay={BLUR_FADE_DELAY * 2}>
-                <div className="mt-4 grid gap-2 sm:grid-cols-3">
-                  {DATA.impact.map((item) => (
-                    <div
-                      key={item.label}
-                      className="rounded-lg border bg-background/80 px-3 py-2 ring-2 ring-border/20"
-                    >
-                      <div className="text-lg font-semibold leading-none">{item.value}</div>
-                      <div className="mt-1 text-xs leading-snug text-muted-foreground">
-                        {item.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </BlurFade>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
               <Avatar className="size-24 md:size-32 border rounded-full shadow-lg ring-4 ring-muted">

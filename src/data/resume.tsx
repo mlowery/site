@@ -21,6 +21,7 @@ export const DATA = {
   sections: {
     about: { order: 1, enabled: true, heading: "About" },
     impact: { order: 3, enabled: true, heading: "Impact" },
+    openSource: { order: 5, enabled: true, heading: "Open Source Contributions" },
     work: { order: 6, enabled: true, heading: "Work Experience", presentLabel: "Present" },
     education: { order: 9, enabled: true, heading: "Education" },
     skills: { order: 4, enabled: true, heading: "Skills" },
@@ -43,13 +44,15 @@ export const DATA = {
       enabled: false,
       heading: "Photos",
     },
+    speaking: { order: 8, enabled: true, heading: "Speaking" },
     contact: {
-      order: 12,
+      order: 11,
       enabled: true,
       label: "Contact",
       heading: "Get in Touch",
       text: "If my background looks relevant to what you're building, email is the best way to reach me.",
     },
+    praise: { order: 10, enabled: true, heading: "Praise" },
   },
   photos: [],
   skills: [
@@ -78,9 +81,6 @@ export const DATA = {
       name: "Infrastructure and delivery",
       skills: [
         "GitOps",
-        "Automation",
-        "CI/CD",
-        "Observability",
         "Prometheus",
         "Grafana",
         "Tekton",
@@ -101,8 +101,8 @@ export const DATA = {
         "Documentation",
         "Jira",
         "Confluence",
-        "Technical mentoring",
-        "Remote written collaboration",
+        "Mentoring",
+        "Technical Writing",
       ],
     },
     {
@@ -149,7 +149,23 @@ export const DATA = {
       topic: "OpenStack Trove and database-as-a-service work",
     },
   ],
-  praise: [],
+  praise: [
+    {
+      quote:
+        "You consistently push for decisions that set us up not just for today, but for years ahead.",
+      context: "Colleague feedback on long-term technical judgment",
+    },
+    {
+      quote:
+        "You have communicated super clearly and set proper and reasonable expectations for your teammates.",
+      context: "Colleague feedback on ambiguous infrastructure work",
+    },
+    {
+      quote:
+        "In addition to solving our problems you always take the time to help me figure out how to solve the problem myself the next time.",
+      context: "Colleague feedback on mentorship and cross-team support",
+    },
+  ],
   navbar: [
     { href: "/", icon: House, label: "Home" },
   ],

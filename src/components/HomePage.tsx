@@ -9,14 +9,26 @@ import HackathonsSection from "@/components/section/hackathons-section";
 import PhotosSection from "@/components/section/photos-section";
 import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
-import { ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  BookOpen,
+  Boxes,
+  FileText,
+  FlaskConical,
+  Network,
+  PenTool,
+  Repeat2,
+  ServerCog,
+  ShieldCheck,
+  Users,
+  Workflow,
+} from "lucide-react";
 import {
   SiApachecassandra,
   SiApachecouchdb,
   SiClaude,
   SiDocker,
   SiGit,
-  SiGithubactions,
   SiGnubash,
   SiGo,
   SiGooglegemini,
@@ -40,7 +52,6 @@ import {
   SiClaudeHex,
   SiDockerHex,
   SiGitHex,
-  SiGithubactionsHex,
   SiGnubashHex,
   SiGoHex,
   SiGooglegeminiHex,
@@ -82,18 +93,27 @@ function SkillLogo({ name }: { name: string }) {
     Linux: { icon: SiLinux, color: SiLinuxHex },
     Docker: { icon: SiDocker, color: SiDockerHex },
     GitOps: { icon: SiGit, color: SiGitHex },
-    "CI/CD": { icon: SiGithubactions, color: SiGithubactionsHex },
+    APIServer: { icon: ServerCog, color: "currentColor" },
+    Operators: { icon: Workflow, color: "currentColor" },
+    Federation: { icon: Network, color: "currentColor" },
+    "Container registries": { icon: Boxes, color: "currentColor" },
     MySQL: { icon: SiMysql, color: SiMysqlHex },
     MongoDB: { icon: SiMongodb, color: SiMongodbHex },
     Couchbase: { icon: SiApachecouchdb, color: SiApachecouchdbHex },
     Cassandra: { icon: SiApachecassandra, color: SiApachecassandraHex },
     Redis: { icon: SiRedis, color: SiRedisHex },
     "OpenStack Trove": { icon: SiOpenstack, color: SiOpenstackHex },
-    Observability: { icon: SiPrometheus, color: SiPrometheusHex },
     Prometheus: { icon: SiPrometheus, color: SiPrometheusHex },
     Grafana: { icon: SiGrafana, color: SiGrafanaHex },
     Jira: { icon: SiJira, color: SiJiraHex },
     Confluence: { icon: SiConfluence, color: SiConfluenceHex },
+    "Release automation": { icon: Repeat2, color: "currentColor" },
+    "Disaster recovery testing": { icon: ShieldCheck, color: "currentColor" },
+    Testing: { icon: FlaskConical, color: "currentColor" },
+    Runbooks: { icon: BookOpen, color: "currentColor" },
+    Documentation: { icon: FileText, color: "currentColor" },
+    Mentoring: { icon: Users, color: "currentColor" },
+    "Technical Writing": { icon: PenTool, color: "currentColor" },
     Gemini: { icon: SiGooglegemini, color: SiGooglegeminiHex },
     Claude: { icon: SiClaude, color: SiClaudeHex },
   };
@@ -145,6 +165,35 @@ const sectionComponents: Record<string, React.ReactNode> = {
         <BlurFade delay={BLUR_FADE_DELAY * 6}>
           <WorkSection />
         </BlurFade>
+      </div>
+    </section>
+  ),
+  openSource: (
+    <section id="open-source">
+      <div className="flex min-h-0 flex-col gap-y-4">
+        <BlurFade delay={BLUR_FADE_DELAY * 7}>
+          <h2 className="text-xl font-bold">{DATA.sections.openSource.heading}</h2>
+        </BlurFade>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {DATA.openSource.map((item, id) => (
+            <BlurFade key={item.name} delay={BLUR_FADE_DELAY * 8 + id * 0.05}>
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block h-full rounded-lg border bg-background p-4 ring-2 ring-border/20 transition-colors hover:bg-muted/40"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="text-sm font-semibold">{item.name}</h3>
+                  <ArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </div>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  {item.description}
+                </p>
+              </a>
+            </BlurFade>
+          ))}
+        </div>
       </div>
     </section>
   ),
@@ -249,6 +298,27 @@ const sectionComponents: Record<string, React.ReactNode> = {
       </BlurFade>
     </section>
   ),
+  speaking: (
+    <section id="speaking">
+      <div className="flex min-h-0 flex-col gap-y-4">
+        <BlurFade delay={BLUR_FADE_DELAY * 12}>
+          <h2 className="text-xl font-bold">{DATA.sections.speaking.heading}</h2>
+        </BlurFade>
+        <div className="grid gap-3">
+          {DATA.speaking.map((item, id) => (
+            <BlurFade key={item.event} delay={BLUR_FADE_DELAY * 13 + id * 0.05}>
+              <div className="rounded-lg border bg-background p-4 ring-2 ring-border/20">
+                <h3 className="text-sm font-semibold">{item.event}</h3>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                  {item.topic}
+                </p>
+              </div>
+            </BlurFade>
+          ))}
+        </div>
+      </div>
+    </section>
+  ),
   hackathons: (
     <section id="hackathons">
       <BlurFade delay={BLUR_FADE_DELAY * 13}>
@@ -262,6 +332,29 @@ const sectionComponents: Record<string, React.ReactNode> = {
       <BlurFade delay={BLUR_FADE_DELAY * 16}>
         <ContactSection />
       </BlurFade>
+    </section>
+  ),
+  praise: (
+    <section id="praise">
+      <div className="flex min-h-0 flex-col gap-y-4">
+        <BlurFade delay={BLUR_FADE_DELAY * 17}>
+          <h2 className="text-xl font-bold">{DATA.sections.praise.heading}</h2>
+        </BlurFade>
+        <div className="grid gap-3">
+          {DATA.praise.map((item, id) => (
+            <BlurFade key={item.quote} delay={BLUR_FADE_DELAY * 18 + id * 0.05}>
+              <figure className="rounded-lg border bg-background p-4 ring-2 ring-border/20">
+                <blockquote className="text-sm leading-relaxed text-foreground">
+                  "{item.quote}"
+                </blockquote>
+                <figcaption className="mt-2 text-xs text-muted-foreground">
+                  {item.context}
+                </figcaption>
+              </figure>
+            </BlurFade>
+          ))}
+        </div>
+      </div>
     </section>
   ),
 };

@@ -83,7 +83,7 @@ function SkillLogo({ name }: { name: string }) {
     Go: { icon: SiGo, color: SiGoHex },
     Python: { icon: SiPython, color: SiPythonHex },
     Ruby: { icon: SiRuby, color: SiRubyHex },
-    Java: { icon: SiOpenjdk, color: SiOpenjdkHex },
+    Java: { icon: SiOpenjdk, color: "currentColor" },
     Shell: { icon: SiGnubash, color: SiGnubashHex },
     Kubernetes: { icon: SiKubernetes, color: SiKubernetesHex },
     etcd: { icon: SiEtcd, color: SiEtcdHex },
@@ -136,7 +136,13 @@ function SkillLogo({ name }: { name: string }) {
     return null;
   }
 
-  return <img src={logo} alt="" className="size-4 object-contain" />;
+  return (
+    <img
+      src={logo}
+      alt=""
+      className="size-4 object-contain dark:brightness-0 dark:invert"
+    />
+  );
 }
 
 const sectionComponents: Record<string, React.ReactNode> = {

@@ -10,15 +10,33 @@ import PhotosSection from "@/components/section/photos-section";
 import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
+import { Python } from "@/components/ui/svgs/python";
+import { Golang } from "@/components/ui/svgs/golang";
+import { Java } from "@/components/ui/svgs/java";
+import { Docker } from "@/components/ui/svgs/docker";
+import { Kubernetes } from "@/components/ui/svgs/kubernetes";
 
 const BLUR_FADE_DELAY = 0.04;
 
 function SkillLogo({ name }: { name: string }) {
+  const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+    Go: Golang,
+    Python,
+    Java,
+    Docker,
+    Kubernetes,
+  };
   const logoMap: Record<string, string> = {
     ChatGPT: "/logos/chatgpt.svg",
     Gemini: "/logos/gemini.svg",
     Claude: "/logos/claude.svg",
   };
+
+  const Icon = iconMap[name];
+
+  if (Icon) {
+    return <Icon className="size-4 rounded overflow-hidden object-contain" />;
+  }
 
   const logo = logoMap[name];
 
@@ -215,7 +233,7 @@ export default function HomePage() {
             </div>
             <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
               <Avatar className="size-24 md:size-32 border rounded-full shadow-lg ring-4 ring-muted">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} className="object-cover object-center" />
                 <AvatarFallback>{DATA.initials}</AvatarFallback>
               </Avatar>
             </BlurFade>

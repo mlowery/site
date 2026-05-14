@@ -13,6 +13,22 @@ import { ArrowUpRight } from "lucide-react";
 
 const BLUR_FADE_DELAY = 0.04;
 
+function SkillLogo({ name }: { name: string }) {
+  const logoMap: Record<string, string> = {
+    ChatGPT: "/logos/chatgpt.svg",
+    Gemini: "/logos/gemini.svg",
+    Claude: "/logos/claude.svg",
+  };
+
+  const logo = logoMap[name];
+
+  if (!logo) {
+    return null;
+  }
+
+  return <img src={logo} alt="" className="size-4 object-contain dark:invert" />;
+}
+
 const sectionComponents: Record<string, React.ReactNode> = {
   about: (
     <section id="about">
@@ -111,12 +127,22 @@ const sectionComponents: Record<string, React.ReactNode> = {
         <BlurFade delay={BLUR_FADE_DELAY * 9}>
           <h2 className="text-xl font-bold">{DATA.sections.skills.heading}</h2>
         </BlurFade>
-        <div className="flex flex-wrap gap-2">
-          {DATA.skills.map((skill, id) => (
-            <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-              <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">
-                {skill.icon && <skill.icon className="size-4 rounded overflow-hidden object-contain" />}
-                <span className="text-foreground text-sm font-medium">{skill.name}</span>
+        <div className="grid gap-4">
+          {DATA.skillGroups.map((group, groupId) => (
+            <BlurFade key={group.name} delay={BLUR_FADE_DELAY * 10 + groupId * 0.05}>
+              <div className="grid gap-2">
+                <h3 className="text-sm font-semibold text-muted-foreground">{group.name}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <div
+                      key={skill}
+                      className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-3 flex items-center gap-2"
+                    >
+                      <SkillLogo name={skill} />
+                      <span className="text-foreground text-sm font-medium">{skill}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </BlurFade>
           ))}

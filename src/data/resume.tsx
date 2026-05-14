@@ -280,7 +280,7 @@ export const DATA = {
       badges: [],
       location: "Remote",
       title: "Sr. MTS, Software Engineer",
-      logoUrl: "https://www.google.com/s2/favicons?domain=ebay.com&sz=128",
+      logoUrl: "/logos/ebay.svg",
       start: "February 2022",
       end: undefined,
       description:
@@ -292,7 +292,7 @@ export const DATA = {
       badges: [],
       location: "Austin, TX",
       title: "MTS 2, Software Engineer",
-      logoUrl: "https://www.google.com/s2/favicons?domain=ebay.com&sz=128",
+      logoUrl: "/logos/ebay.svg",
       start: "May 2016",
       end: "February 2022",
       description:
@@ -304,7 +304,7 @@ export const DATA = {
       badges: [],
       location: "Austin, TX",
       title: "MTS 2, Software Engineer",
-      logoUrl: "https://www.google.com/s2/favicons?domain=ebay.com&sz=128",
+      logoUrl: "/logos/ebay.svg",
       start: "November 2013",
       end: "April 2016",
       description:
@@ -316,7 +316,7 @@ export const DATA = {
       badges: [],
       location: "Austin, TX",
       title: "MTS 1, Software Engineer",
-      logoUrl: "https://www.google.com/s2/favicons?domain=ebayinc.com&sz=128",
+      logoUrl: "/logos/ebay.svg",
       start: "April 2012",
       end: "November 2013",
       description:
@@ -340,7 +340,7 @@ export const DATA = {
       badges: [],
       location: "Orlando, FL",
       title: "Application Software Developer",
-      logoUrl: "https://www.google.com/s2/favicons?domain=travelandleisureco.com&sz=128",
+      logoUrl: "/logos/wyndham.svg",
       start: "October 2003",
       end: "September 2006",
       description:

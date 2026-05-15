@@ -2,7 +2,6 @@ import { Icons } from "@/components/icons";
 import { Binoculars, File, House, Mic, Play } from "lucide-react";
 import { Python } from "@/components/ui/svgs/python";
 import { Golang } from "@/components/ui/svgs/golang";
-import { Java } from "@/components/ui/svgs/java";
 import { Docker } from "@/components/ui/svgs/docker";
 import { Kubernetes } from "@/components/ui/svgs/kubernetes";
 
@@ -78,15 +77,15 @@ export const DATA = {
   skills: [
     { name: "Go", icon: Golang },
     { name: "Python", icon: Python },
-    { name: "Java", icon: Java },
     { name: "Kubernetes", icon: Kubernetes },
     { name: "Docker", icon: Docker },
   ],
   skillGroups: [
-    { name: "Languages", skills: ["Go", "Python", "Ruby", "Java", "Shell"] },
+    { name: "Languages", skills: ["Go", "Python", "Shell"] },
     {
       name: "Platform and Kubernetes",
       skills: [
+        "Containers",
         "Kubernetes",
         "etcd",
         "APIServer",
@@ -155,31 +154,43 @@ export const DATA = {
       highlights: [
         {
           project: "CoreDNS",
+          icon: "coredns",
           title: "CoreDNS Kubernetes plugin namespace performance",
           url: "https://github.com/coredns/coredns/pull/4767",
           detail:
             "Merged a Kubernetes plugin change that replaced namespace list scans with cache lookups and reduced namespace cache memory for clusters with 10K+ namespaces.",
         },
         {
-          project: "CoreDNS",
-          title: "CoreDNS Prometheus metric docs",
-          url: "https://github.com/coredns/coredns/pull/3029",
+          project: "Gophercloud",
+          icon: "gophercloud",
+          title: "Gophercloud reauth deadlock analysis",
+          url: "https://github.com/gophercloud/gophercloud/issues/645",
           detail:
-            "Fixed incorrect `response_rcode_count_total` metric references in forward and gRPC plugin documentation.",
-        },
-        {
-          project: "Kubernetes Cluster Registry",
-          title: "Cluster registry API server RBAC fix",
-          url: "https://github.com/kubernetes-retired/cluster-registry/pull/204",
-          detail:
-            "Corrected ClusterRole resources for the cluster registry API server so the generated access rules matched the API resource names.",
+            "Reported and isolated a reauthentication deadlock with a minimal reproducer and lock-level diagnosis.",
         },
         {
           project: "Quay",
+          icon: "quay",
           title: "RadosGW storage provider chunk sizing",
           url: "https://github.com/quay/quay/pull/3958",
           detail:
             "Opened a Quay storage provider change adding `minimum_chunk_size_mb` configurability for RadosGW uploads.",
+        },
+        {
+          project: "Kubernetes Cluster Registry",
+          icon: "kubernetes",
+          title: "Cluster registry API server RBAC fix",
+          url: "https://github.com/kubernetes-retired/cluster-registry/pull/204",
+          detail:
+            "Corrected ClusterRole resources for the cluster registry API server so generated access rules matched API resource names.",
+        },
+        {
+          project: "Kubernetes",
+          icon: "kubernetes",
+          title: "Kubelet pod status reason/message bug",
+          url: "https://github.com/kubernetes/kubernetes/issues/119956",
+          detail:
+            "Filed a SIG Node bug showing how kubelet could copy `status.reason` and `status.message` across pod phase transitions.",
         },
       ],
     },
@@ -190,31 +201,19 @@ export const DATA = {
       highlights: [
         {
           project: "OpenStack Trove",
+          icon: "trove",
           title: "OpenStack Trove cluster task manager",
           url: "https://review.opendev.org/c/openstack/trove/+/113692",
           detail:
             "Merged the cluster task manager implementation for OpenStack Trove, adding the orchestration layer for database cluster lifecycle work.",
         },
         {
-          project: "OpenStack Trove Integration",
-          title: "Trove restart workflow reliability",
-          url: "https://review.opendev.org/c/openstack/trove-integration/+/123582",
+          project: "OpenStack Trove",
+          icon: "trove",
+          title: "Service endpoints from catalog",
+          url: "https://review.opendev.org/c/openstack/trove/+/68015",
           detail:
-            "Improved Trove integration tooling by reusing the existing screen window when restarting Trove services during development and testing.",
-        },
-        {
-          project: "OpenStack Trove Integration",
-          title: "Conditional config loading",
-          url: "https://review.opendev.org/c/openstack/trove-integration/+/119880",
-          detail:
-            "Merged a Trove integration change to load configuration parameters conditionally, reducing friction in local and gate workflows.",
-        },
-        {
-          project: "OpenDev System Config",
-          title: "Developer documentation CSS fix",
-          url: "https://review.opendev.org/c/opendev/system-config/+/71752",
-          detail:
-            "Fixed list-item styling in OpenDev system documentation while preserving the Jenkins-specific CSS exception.",
+            "Merged a Trove service-catalog change that moved service endpoint discovery away from hard-coded URL configuration.",
         },
       ],
     },
@@ -222,12 +221,12 @@ export const DATA = {
   speaking: [
     {
       event: "SpringOne Americas",
-      date: "Dec 1-4, 2008",
+      date: "Dec 2008",
       topic: "Spring Security usage in Pentaho product architecture",
     },
     {
       event: "OpenStack Trove Day",
-      date: "August 19, 2014",
+      date: "Aug 2014",
       topic: "OpenStack Trove and database-as-a-service work",
     },
   ],
@@ -283,7 +282,7 @@ export const DATA = {
       location: "Remote",
       title: "Sr. MTS, Software Engineer",
       logoUrl: "/logos/ebay.svg",
-      start: "February 2022",
+      start: "Feb 2022",
       end: undefined,
       description:
         "Senior backend infrastructure engineer focused on Kubernetes control planes, etcd, DNS, federation, container registry, SRE enablement, and platform automation for one of the industry's largest private Kubernetes fleets. Led a registry migration that eliminated six figures per year in vendor cost, improved APIServer reliability with SRE partners, rolled out operator-based automation across 100 etcd clusters, split federation syncing for multi-year scale runway, and adopted AI-assisted, spec-driven workflows while preserving reviewability.",
@@ -296,7 +295,7 @@ export const DATA = {
       title: "MTS 2, Software Engineer",
       logoUrl: "/logos/ebay.svg",
       start: "May 2016",
-      end: "February 2022",
+      end: "Feb 2022",
       description:
         "Built and operated eBay's Kubernetes platform across DNS, federation, control planes, release automation, security hardening, and production support at 60+ clusters, 30K+ nodes, and 160K+ pods. Tuned CoreDNS to reduce query volume 75%, increase QPS 4x, and cut CPU and memory by 80% and 50%. Built GitOps-based federation release automation, credential rotation automation, and clear written practices for remote infrastructure work.",
     },
@@ -307,8 +306,8 @@ export const DATA = {
       location: "Austin, TX",
       title: "MTS 2, Software Engineer",
       logoUrl: "/logos/ebay.svg",
-      start: "November 2013",
-      end: "April 2016",
+      start: "Nov 2013",
+      end: "Apr 2016",
       description:
         "Developed database-as-a-service and database failover tooling for eBay infrastructure, with emphasis on testability, operational hardening, and OpenStack-based services. Contributed code, reviews, bugs, documentation, and infrastructure debugging across OpenStack Trove and related OpenStack projects.",
     },
@@ -318,9 +317,9 @@ export const DATA = {
       badges: [],
       location: "Austin, TX",
       title: "MTS 1, Software Engineer",
-      logoUrl: "/logos/ebay.svg",
-      start: "April 2012",
-      end: "November 2013",
+      logoUrl: "/logos/xcommerce.jpg",
+      start: "Apr 2012",
+      end: "Nov 2013",
       description:
         "Built and operated private OpenStack infrastructure on bare metal, including Nova, Keystone, Glance, Swift, and Cinder. Led replacement of floating-IP failover with Corosync and Pacemaker clustering for more robust VM high availability.",
     },
@@ -331,8 +330,8 @@ export const DATA = {
       location: "Orlando, FL",
       title: "Senior Software Engineer",
       logoUrl: "/logos/pentaho.svg",
-      start: "October 2006",
-      end: "April 2012",
+      start: "Oct 2006",
+      end: "Apr 2012",
       description:
         "Built core backend platform features for business intelligence products, including secured artifact repository architecture, security infrastructure, and open-source integrations. Led product security components, wrote public documentation used by customer-facing teams, contributed to Spring Security, Apache Jackrabbit, CloudInit, and presented at SpringOne Americas.",
     },
@@ -343,8 +342,8 @@ export const DATA = {
       location: "Orlando, FL",
       title: "Application Software Developer",
       logoUrl: "/logos/wyndham.svg",
-      start: "October 2003",
-      end: "September 2006",
+      start: "Oct 2003",
+      end: "Sep 2006",
       description:
         "Built enterprise web application infrastructure for customer-facing systems, with focus on security, shared services, reusable application layers, and user-management services across Active Directory and Oracle user stores.",
     },

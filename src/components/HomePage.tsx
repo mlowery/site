@@ -13,6 +13,7 @@ import {
   ArrowUpRight,
   BookOpen,
   Boxes,
+  Cloud,
   FileText,
   FlaskConical,
   Network,
@@ -90,6 +91,7 @@ function SkillLogo({ name }: { name: string }) {
     Tekton: { icon: SiTekton, color: SiTektonHex },
     Linux: { icon: SiLinux, color: SiLinuxHex },
     Docker: { icon: SiDocker, color: SiDockerHex },
+    Containers: { icon: SiDocker, color: SiDockerHex },
     GitOps: { icon: SiGit, color: SiGitHex },
     APIServer: { icon: ServerCog, color: "currentColor" },
     Operators: { icon: Workflow, color: "currentColor" },
@@ -143,6 +145,34 @@ function SkillLogo({ name }: { name: string }) {
       className="size-4 object-contain dark:brightness-0 dark:invert"
     />
   );
+}
+
+function OpenSourceIcon({ name }: { name?: string }) {
+  if (name === "coredns") {
+    return <img src="/logos/coredns.svg" alt="" className="size-4 object-contain" />;
+  }
+
+  const iconMap: Record<
+    string,
+    {
+      icon: React.ComponentType<{ className?: string; color?: string; size?: number | string }>;
+      color: string;
+    }
+  > = {
+    gophercloud: { icon: Cloud, color: "currentColor" },
+    kubernetes: { icon: SiKubernetes, color: SiKubernetesHex },
+    quay: { icon: Boxes, color: "currentColor" },
+    trove: { icon: SiOpenstack, color: SiOpenstackHex },
+  };
+
+  const iconConfig = name ? iconMap[name] : undefined;
+
+  if (!iconConfig) {
+    return null;
+  }
+
+  const Icon = iconConfig.icon;
+  return <Icon className="size-4 shrink-0" color={iconConfig.color} />;
 }
 
 const sectionComponents: Record<string, React.ReactNode> = {
@@ -207,12 +237,17 @@ const sectionComponents: Record<string, React.ReactNode> = {
                       className="group block rounded-md border border-border/70 bg-muted/20 p-3 transition-colors hover:bg-muted/50"
                     >
                       <div className="flex items-start justify-between gap-3">
-                        <div className="min-w-0">
+                        <div className="flex min-w-0 gap-2">
+                          <div className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-md border bg-background">
+                            <OpenSourceIcon name={highlight.icon} />
+                          </div>
+                          <div className="min-w-0">
                           <div className="text-[11px] font-medium uppercase tracking-normal text-muted-foreground">
                             {highlight.project}
                           </div>
                           <div className="mt-1 text-sm font-semibold leading-snug">
                             {highlight.title}
+                          </div>
                           </div>
                         </div>
                         <ArrowUpRight className="mt-0.5 size-3.5 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

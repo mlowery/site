@@ -145,6 +145,11 @@ export const DATA = {
       value: "50%",
       description: "Prioritized SLO signals and follow-up fixes with the APIServer SRE team.",
     },
+    {
+      label: "Container image upload rate",
+      value: "2x+",
+      description: "Patched container registry upload code and tuned chunk size for faster pushes.",
+    },
   ],
   openSource: [
     {

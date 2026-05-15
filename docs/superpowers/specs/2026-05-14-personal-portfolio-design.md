@@ -106,6 +106,76 @@ Group skills by practical hiring categories:
 - Tools and practices: testing, runbooks, documentation, technical mentoring, remote written collaboration.
 - AI-assisted engineering: ChatGPT, Gemini, Claude. Show these as recognizable logos/icons within Skills, not as a standalone section.
 
+#### Other Skills
+
+Not all of these will fit. Do not include items from this laundry list unless they make sense.
+
+- Kubernetes
+- CoreDNS
+- DNS
+- Golang
+- Docker
+- Claude
+- Codex
+- Gemini
+- Tekton
+- K8s Prow
+- Distroless
+- Linux
+- OCI distribution
+- OCI manifest
+- Container registry
+- Python
+- Shell scripting
+- REST
+- JSON
+- YAML
+- TOML
+- kubectl
+- etcd
+- etcd-operator
+- K8s operator pattern
+- Load balancers
+- Authentication
+- Authorization
+- Webhooks
+- K8s extension apiservers
+- K8s controller manager
+- K8s scheduler
+- Backoff
+- Exponential backoff
+- Timeouts
+- Work queues
+- Concurrency
+- Goroutines
+- Visual Studio Code
+- PagerDuty
+- Prometheus
+- Grafana
+- Loki
+- Redis
+- MySQL
+- JWT
+- GitOps
+- CI/CD
+- Platform engineering
+- Developer productivity
+- Developer experience
+- SLOs
+- Runbooks
+- Release automation
+- Rollback planning
+- Disaster recovery testing
+- Credential rotation
+- Technical writing
+- Mentoring
+- OpenStack
+- AI-assisted development
+- Spec-driven development
+- Internal developer tools
+- Production debugging
+- Control plane reliability
+
 ### Open Source Contributions
 
 Include links:
@@ -113,7 +183,7 @@ Include links:
 - `https://github.com/search?q=author%3Amlowery`
 - `https://review.opendev.org/q/owner:mlowery@ebaysf.com`
 
-Highlight relevant ecosystems from the LinkedIn profile: Kubernetes/CoreDNS, OpenStack Trove/OpenStack, Spring Security, Apache Jackrabbit, CloudInit.
+Highlight relevant ecosystems from the LinkedIn profile: Kubernetes/CoreDNS, OpenStack Trove/OpenStack
 
 ### Work Experience
 
@@ -134,10 +204,10 @@ Include the requested projects when details are available:
 - Emcee
 - Sticky-kubeconfig
 - Executable-image
-- Dot files
+- Dotfiles
 - Kubectl-watchhook
 
-Describe each by purpose and problem solved rather than as a bare link list.
+Describe each by purpose and problem solved rather than as a bare link list. These are all public repos at github.com/mlowery.
 
 ### Speaking
 

@@ -126,7 +126,7 @@ export const DATA = {
     },
     {
       name: "AI-assisted engineering",
-      skills: ["ChatGPT", "Gemini", "Claude"],
+      skills: ["Codex", "Gemini", "Claude"],
     },
   ],
   impact: [

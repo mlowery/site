@@ -102,7 +102,7 @@ function SkillLogo({ name }: { name: string }) {
     Claude: { icon: SiClaude, color: SiClaudeHex },
   };
   const logoMap: Record<string, string> = {
-    ChatGPT: "/logos/chatgpt.svg",
+    Codex: "/logos/codex.svg",
     CoreDNS: "/logos/coredns.svg",
     DNS: "/logos/dns.svg",
     Gemini: "/logos/gemini.svg",
@@ -127,7 +127,7 @@ function SkillLogo({ name }: { name: string }) {
     <img
       src={logo}
       alt=""
-      className="size-4 object-contain dark:brightness-0 dark:invert"
+      className="size-4 object-contain"
     />
   );
 }

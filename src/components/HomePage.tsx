@@ -123,6 +123,14 @@ function SkillLogo({ name }: { name: string }) {
     return null;
   }
 
+  if (name === "Redis" || name === "CoreDNS") {
+    return (
+      <span className="inline-flex size-4 shrink-0 items-center justify-center rounded-[3px] bg-white p-0.5 ring-1 ring-border/60">
+        <img src={logo} alt="" className="size-full object-contain" />
+      </span>
+    );
+  }
+
   return (
     <img
       src={logo}
@@ -134,7 +142,11 @@ function SkillLogo({ name }: { name: string }) {
 
 function OpenSourceIcon({ name }: { name?: string }) {
   if (name === "coredns") {
-    return <img src="/logos/coredns.svg" alt="" className="size-4 object-contain" />;
+    return (
+      <span className="inline-flex size-4 shrink-0 items-center justify-center rounded-[3px] bg-white p-0.5 ring-1 ring-border/60">
+        <img src="/logos/coredns.svg" alt="" className="size-full object-contain" />
+      </span>
+    );
   }
 
   const iconMap: Record<
@@ -443,18 +455,16 @@ export default function HomePage() {
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
               />
-              <BlurFade delay={BLUR_FADE_DELAY * 2}>
-                <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                  <MapPin className="size-4" aria-hidden />
-                  <span>Denver, CO</span>
-                </div>
-              </BlurFade>
             </div>
-            <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
+            <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2 flex flex-col items-center gap-2">
               <Avatar className="size-24 md:size-32 border rounded-full shadow-lg ring-4 ring-muted">
                 <AvatarImage alt={DATA.name} src={DATA.avatarUrl} className="object-cover object-center" />
                 <AvatarFallback>{DATA.initials}</AvatarFallback>
               </Avatar>
+              <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                <MapPin className="size-4" aria-hidden />
+                <span>Denver, CO</span>
+              </div>
             </BlurFade>
           </div>
         </div>

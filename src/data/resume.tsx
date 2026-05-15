@@ -1,29 +1,9 @@
 import { Icons } from "@/components/icons";
-import { Binoculars, File, House, Mic, Play } from "lucide-react";
+import { Binoculars, GitBranch, House, Mic, Play, Terminal } from "lucide-react";
 import { Python } from "@/components/ui/svgs/python";
 import { Golang } from "@/components/ui/svgs/golang";
 import { Docker } from "@/components/ui/svgs/docker";
 import { Kubernetes } from "@/components/ui/svgs/kubernetes";
-
-function GlueIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M9 2h6v5H9z" />
-      <path d="M10 7h4l2 4v9a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-9z" />
-      <path d="M8 14h8" />
-      <path d="M10 18h4" />
-    </svg>
-  );
-}
 
 export const DATA = {
   name: "Mat Lowery",
@@ -34,13 +14,13 @@ export const DATA = {
   description:
     "I build internal platforms, automation, and developer tools that make complex infrastructure easier to use.",
   summary:
-    "I'm a senior backend and platform engineer interested in developer productivity, internal tools, and infrastructure that gets out of the way. Over the past decade, I've worked deeply within the Kubernetes ecosystem, including container registries, K8s apiserver, etcd, operators, and CoreDNS at large scale. The thread through my work is making complex systems easier for engineers to understand and use: automating repeatable work, improving observability, documenting operational paths, reducing cognitive load, and building safer workflows around infrastructure change.",
+    "I'm a senior backend and platform engineer interested in developer productivity, internal tools, and infrastructure that gets out of the way. Over the past decade, I've worked deeply within the Kubernetes ecosystem at large scale. The thread through my work is making complex systems easier for engineers to understand and use.",
   avatarUrl: "/headshot.png",
   ogImage: "/og_image.png",
   sections: {
     about: { order: 1, enabled: true, heading: "About" },
     impact: { order: 3, enabled: true, heading: "Impact" },
-    openSource: { order: 5, enabled: true, heading: "Open Source Contributions" },
+    openSource: { order: 10.3, enabled: true, heading: "Open Source Contributions" },
     work: { order: 6, enabled: true, heading: "Work Experience", presentLabel: "Present" },
     education: { order: 9, enabled: true, heading: "Education" },
     skills: { order: 4, enabled: true, heading: "Skills" },
@@ -49,7 +29,7 @@ export const DATA = {
       enabled: true,
       label: "Personal Projects",
       heading: "Personal Projects",
-      text: "Small tools and experiments that reflect how I work: practical automation, Kubernetes workflows, and durable developer environments.",
+      text: "",
     },
     hackathons: {
       order: 10,
@@ -63,15 +43,15 @@ export const DATA = {
       enabled: false,
       heading: "Photos",
     },
-    speaking: { order: 8, enabled: true, heading: "Speaking" },
+    speaking: { order: 9.5, enabled: true, heading: "Speaking" },
     contact: {
       order: 11,
       enabled: true,
       label: "Contact",
       heading: "Get in Touch",
-      text: "If my background looks relevant to what you're building, email is the best way to reach me.",
+      text: "If my background looks relevant to what you're building, LinkedIn is the best way to reach me.",
     },
-    praise: { order: 10, enabled: true, heading: "Praise" },
+    praise: { order: 10, enabled: true, heading: "Kudos" },
   },
   photos: [],
   skills: [
@@ -94,6 +74,7 @@ export const DATA = {
         "Operators",
         "Federation",
         "OCI container registries",
+        "Quay",
       ],
     },
     {
@@ -113,13 +94,15 @@ export const DATA = {
       skills: ["MySQL", "etcd", "Redis"],
     },
     {
-      name: "Tools and practices",
+      name: "Tools",
+      skills: ["Jira", "Confluence", "VSCode", "iTerm2"],
+    },
+    {
+      name: "Practices",
       skills: [
         "Testing",
         "Runbooks",
         "Documentation",
-        "Jira",
-        "Confluence",
         "Mentoring",
         "Technical Writing",
       ],
@@ -378,9 +361,8 @@ export const DATA = {
       dates: "",
       active: true,
       description: "Multi-cluster command runner for running commands in parallel across Kubernetes clusters.",
-      technologies: ["Go", "Kubernetes"],
-      icon: <Mic className="size-5" />,
-      iconTone: "bg-sky-500/10 text-sky-600 dark:text-sky-300",
+      technologies: ["Go", "Kubernetes", "Concurrency"],
+      icon: <Mic size={16} />,
       links: [
         {
           type: "Source",
@@ -398,8 +380,7 @@ export const DATA = {
       active: true,
       description: "Shell helper for keeping a unique kubeconfig per terminal session.",
       technologies: ["Kubernetes", "Shell"],
-      icon: <GlueIcon className="size-5" />,
-      iconTone: "bg-amber-500/10 text-amber-700 dark:text-amber-300",
+      icon: <Terminal size={16} />,
       links: [
         {
           type: "Source",
@@ -417,8 +398,7 @@ export const DATA = {
       active: true,
       description: "Shell tooling to run Docker images as executables.",
       technologies: ["Containers", "OCI"],
-      icon: <Play className="size-5" />,
-      iconTone: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-300",
+      icon: <Play size={16} />,
       links: [
         {
           type: "Source",
@@ -436,8 +416,7 @@ export const DATA = {
       active: true,
       description: "Personal dotfiles for shell, terminal, macOS, and development productivity.",
       technologies: ["Shell", "Git"],
-      icon: <File className="size-5" />,
-      iconTone: "bg-violet-500/10 text-violet-600 dark:text-violet-300",
+      icon: <GitBranch size={16} />,
       links: [
         {
           type: "Source",
@@ -454,9 +433,8 @@ export const DATA = {
       dates: "",
       active: true,
       description: "kubectl plugin to watch Kubernetes objects and call a command per watch event.",
-      technologies: ["Kubernetes", "kubectl"],
-      icon: <Binoculars className="size-5" />,
-      iconTone: "bg-rose-500/10 text-rose-600 dark:text-rose-300",
+      technologies: ["Kubernetes", "kubectl", "Go"],
+      icon: <Binoculars size={16} />,
       links: [
         {
           type: "Source",

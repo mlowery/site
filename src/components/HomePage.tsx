@@ -106,7 +106,10 @@ function SkillLogo({ name }: { name: string }) {
     CoreDNS: "/logos/coredns.svg",
     DNS: "/logos/dns.svg",
     Gemini: "/logos/gemini.svg",
+    iTerm2: "/logos/iterm2.svg",
+    Quay: "/logos/quay.svg",
     Redis: "/logos/redis.svg",
+    VSCode: "/logos/vscode.svg",
     Claude: "/logos/claude.svg",
   };
 
@@ -123,11 +126,13 @@ function SkillLogo({ name }: { name: string }) {
     return null;
   }
 
+  const monochromeLogos = new Set(["iTerm2"]);
+
   return (
     <img
       src={logo}
       alt=""
-      className="size-4 object-contain"
+      className={`size-4 object-contain${monochromeLogos.has(name) ? " dark:invert" : ""}`}
     />
   );
 }

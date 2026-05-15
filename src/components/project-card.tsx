@@ -111,12 +111,7 @@ export function ProjectCard({
         <div className="flex items-start justify-between gap-2">
           <div className="flex min-w-0 items-start gap-3">
             {icon && (
-              <div
-                className={cn(
-                  "flex size-10 shrink-0 items-center justify-center rounded-lg",
-                  iconTone || "bg-muted text-foreground"
-                )}
-              >
+              <div className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-md border bg-background">
                 {icon}
               </div>
             )}

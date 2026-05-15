@@ -180,6 +180,11 @@ const { baseFontSize } = CONFIG.typography;
     <!-- Main content wrapper - matches template's z-10 container exactly -->
     <div class="relative z-10 max-w-2xl mx-auto py-12 pb-24 sm:py-24 px-6">
       <slot />
+      <footer class="mt-16 text-center text-xs text-muted-foreground">
+        Built with <a href="https://astro.build" class="underline underline-offset-2 hover:text-foreground transition-colors">Astro</a>
+        · Hosted on <a href="https://cloudflare.com" class="underline underline-offset-2 hover:text-foreground transition-colors">Cloudflare</a>
+        · Theme by <a href="https://github.com/webrating/starfolio" class="underline underline-offset-2 hover:text-foreground transition-colors">Starfolio</a>
+      </footer>
     </div>
 
     <!-- Navbar: ThemeProvider + TooltipProvider + Navbar all in one React island -->

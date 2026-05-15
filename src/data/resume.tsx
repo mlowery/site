@@ -85,15 +85,16 @@ export const DATA = {
     {
       name: "Platform and Kubernetes",
       skills: [
-        "Containers",
+        "Docker",
         "Kubernetes",
         "etcd",
         "APIServer",
         "CoreDNS",
         "DNS",
+        "OpenStack",
         "Operators",
         "Federation",
-        "Container registries",
+        "OCI container registries",
       ],
     },
     {
@@ -110,7 +111,7 @@ export const DATA = {
     },
     {
       name: "Databases",
-      skills: ["MySQL", "MongoDB", "Couchbase", "Cassandra", "Redis", "OpenStack Trove"],
+      skills: ["Redis"],
     },
     {
       name: "Tools and practices",
@@ -309,7 +310,7 @@ export const DATA = {
       start: "Nov 2013",
       end: "Apr 2016",
       description:
-        "Developed database-as-a-service and database failover tooling for eBay infrastructure, with emphasis on testability, operational hardening, and OpenStack-based services. Contributed code, reviews, bugs, documentation, and infrastructure debugging across OpenStack Trove and related OpenStack projects.",
+        "Developed database-as-a-service and database failover tooling for MySQL, MongoDB, Couchbase, and Cassandra on eBay infrastructure, with emphasis on testability, operational hardening, and OpenStack-based services. Contributed code, reviews, bugs, documentation, and infrastructure debugging across OpenStack Trove and related OpenStack projects.",
     },
     {
       company: "X.commerce",

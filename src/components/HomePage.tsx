@@ -91,16 +91,15 @@ function SkillLogo({ name }: { name: string }) {
     Tekton: { icon: SiTekton, color: SiTektonHex },
     Linux: { icon: SiLinux, color: SiLinuxHex },
     Docker: { icon: SiDocker, color: SiDockerHex },
-    Containers: { icon: SiDocker, color: SiDockerHex },
     GitOps: { icon: SiGit, color: SiGitHex },
     APIServer: { icon: ServerCog, color: "currentColor" },
     Operators: { icon: Workflow, color: "currentColor" },
     Federation: { icon: Network, color: "currentColor" },
-    "Container registries": { icon: Boxes, color: "currentColor" },
+    "OCI container registries": { icon: Boxes, color: "currentColor" },
     MySQL: { icon: SiMysql, color: SiMysqlHex },
     MongoDB: { icon: SiMongodb, color: SiMongodbHex },
     Cassandra: { icon: SiApachecassandra, color: SiApachecassandraHex },
-    "OpenStack Trove": { icon: SiOpenstack, color: SiOpenstackHex },
+    OpenStack: { icon: SiOpenstack, color: SiOpenstackHex },
     Prometheus: { icon: SiPrometheus, color: SiPrometheusHex },
     Grafana: { icon: SiGrafana, color: SiGrafanaHex },
     Jira: { icon: SiJira, color: SiJiraHex },
@@ -161,13 +160,16 @@ function OpenSourceIcon({ name }: { name?: string }) {
   > = {
     gophercloud: { icon: Cloud, color: "currentColor" },
     kubernetes: { icon: SiKubernetes, color: SiKubernetesHex },
-    quay: { icon: Boxes, color: "currentColor" },
     trove: { icon: SiOpenstack, color: SiOpenstackHex },
   };
 
   const iconConfig = name ? iconMap[name] : undefined;
 
   if (!iconConfig) {
+    if (name === "quay") {
+      return <img src="/logos/quay.svg" alt="" className="size-4 object-contain" />;
+    }
+
     return null;
   }
 

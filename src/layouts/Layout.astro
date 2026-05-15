@@ -19,14 +19,27 @@ const {
   canonicalURL = Astro.url.href,
 } = Astro.props;
 
+const seoTitle = "Mat Lowery | Mathew Lowery | Platform Engineer";
 const pageTitle = title
-  ? CONFIG.seo.titleTemplate.replace("%s", title).replace("%n", DATA.name)
-  : DATA.name;
+  ? CONFIG.seo.titleTemplate.replace("%s", title).replace("%n", seoTitle)
+  : seoTitle;
 const ogImage = image
   ? image.startsWith("http")
     ? image
     : `${CONFIG.site.url}${image}`
   : `${CONFIG.site.url}${DATA.ogImage}`;
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Mathew Lowery",
+  alternateName: ["Mat Lowery", "mlowery"],
+  jobTitle: "Platform Engineer",
+  url: CONFIG.site.url,
+  sameAs: [
+    DATA.contact.social.GitHub.url,
+    DATA.contact.social.LinkedIn.url,
+  ],
+};
 
 const { light, dark, radius } = CONFIG.theme;
 const { baseFontSize } = CONFIG.typography;
@@ -117,6 +130,7 @@ const { baseFontSize } = CONFIG.typography;
     <!-- Primary meta -->
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <meta name="author" content="Mathew Lowery" />
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Robots -->
@@ -140,6 +154,7 @@ const { baseFontSize } = CONFIG.typography;
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
   </head>
   <body class="min-h-screen bg-background font-sans antialiased relative">
     <!-- FlickeringGrid header background - matches template exactly -->

@@ -35,6 +35,12 @@ const personJsonLd = {
   alternateName: ["Mat Lowery", "mlowery"],
   jobTitle: "Platform Engineer",
   url: CONFIG.site.url,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Denver",
+    addressRegion: "CO",
+    addressCountry: "US",
+  },
   sameAs: [
     DATA.contact.social.GitHub.url,
     DATA.contact.social.LinkedIn.url,

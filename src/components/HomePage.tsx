@@ -438,17 +438,17 @@ export default function HomePage() {
                 yOffset={8}
                 text={DATA.name}
               />
-              <BlurFadeText
-                className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
-                delay={BLUR_FADE_DELAY}
-                text={DATA.description}
-              />
               <BlurFade delay={BLUR_FADE_DELAY * 2}>
                 <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
                   <MapPin className="size-4" aria-hidden />
                   <span>Denver, CO</span>
                 </div>
               </BlurFade>
+              <BlurFadeText
+                className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
+                delay={BLUR_FADE_DELAY}
+                text={DATA.description}
+              />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
               <Avatar className="size-24 md:size-32 border rounded-full shadow-lg ring-4 ring-muted">

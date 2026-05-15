@@ -87,7 +87,6 @@ export const DATA = {
       skills: [
         "Docker",
         "Kubernetes",
-        "etcd",
         "APIServer",
         "CoreDNS",
         "DNS",
@@ -111,7 +110,7 @@ export const DATA = {
     },
     {
       name: "Databases",
-      skills: ["Redis"],
+      skills: ["MySQL", "etcd", "Redis"],
     },
     {
       name: "Tools and practices",

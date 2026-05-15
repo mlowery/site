@@ -12,8 +12,6 @@
 
 [**Live Demo**](https://astro-portfolio-template.websiterating.com) · [Report Bug](https://github.com/webrating/starfolio/issues) · [Request Feature](https://github.com/webrating/starfolio/issues)
 
-![Starfolio preview](./public/starfolio-preview.png)
-
 </div>
 
 ## Why Starfolio?

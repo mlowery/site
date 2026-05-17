@@ -105,12 +105,10 @@ function SkillLogo({ name }: { name: string }) {
     Codex: "/logos/codex.svg",
     CoreDNS: "/logos/coredns.svg",
     DNS: "/logos/dns.svg",
-    Gemini: "/logos/gemini.svg",
     iTerm2: "/logos/iterm2.svg",
     Quay: "/logos/quay.svg",
     Redis: "/logos/redis.svg",
     VSCode: "/logos/vscode.svg",
-    Claude: "/logos/claude.svg",
   };
 
   const iconConfig = iconMap[name];

@@ -15,3 +15,6 @@ Icons for CoreDNS and Redis don't render well in dark mode (they're just pure wh
 
 In the About section, perhaps shorten this sentence "Over the past decade, I've worked deeply within the Kubernetes ecosystem, including container registries, K8s apiserver, etcd, operators, and CoreDNS at large scale." to "Over the past decade, I've worked deeply within the Kubernetes ecosystem at large scale." Then get rid of ": automating repeatable work, improving observability, documenting operational paths, reducing cognitive load, and building safer workflows around infrastructure change."
 
+The icons used in Personal projects aren't consistent with other logos. Can you use different icons that better match the size and outlines as they appear in Open source contributions?
+
+Tag kubectl-watchhook with Go. Tag emcee with Concurrency. For the icons, use Terminal icon for sticky-kubeconfig. For executable-image, use a Run icon. For dotfiles, use a version control icon.

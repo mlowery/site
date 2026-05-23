@@ -1,5 +1,16 @@
 import { Icons } from "@/components/icons";
-import { Binoculars, GitBranch, House, Mic, Play, Terminal } from "lucide-react";
+import {
+  Binoculars,
+  Camera,
+  Dumbbell,
+  GitBranch,
+  Hand,
+  House,
+  Library,
+  Mic,
+  Play,
+  Terminal,
+} from "lucide-react";
 import { Python } from "@/components/ui/svgs/python";
 import { Golang } from "@/components/ui/svgs/golang";
 import { Docker } from "@/components/ui/svgs/docker";
@@ -14,7 +25,7 @@ export const DATA = {
   description:
     "I build internal platforms, automation, and developer tools that make complex infrastructure easier to use.",
   summary:
-    "I'm a senior backend and platform engineer interested in developer productivity, internal tools, and infrastructure that gets out of the way. Over the past decade, I've worked deeply within the Kubernetes ecosystem at large scale. The thread through my work is making complex systems easier for engineers to understand and use.",
+    "I'm a senior platform engineer interested in developer productivity, internal tools, and infrastructure that gets out of the way. Over the past decade, I've worked deeply within the Kubernetes ecosystem at large scale. The thread through my work is making complex systems easier for engineers to understand and use.",
   avatarUrl: "/headshot.png",
   ogImage: "/og_image.png",
   sections: {
@@ -237,6 +248,7 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: House, label: "Home" },
+    { href: "/blog", icon: Library, label: "Blog" },
   ],
   contact: {
     email: "mat@matlowery.com",
@@ -264,6 +276,7 @@ export const DATA = {
   },
   work: [
     {
+      id: "ebay-sr-mts-2022",
       company: "eBay",
       href: "https://www.ebay.com",
       badges: [],
@@ -273,9 +286,10 @@ export const DATA = {
       start: "Feb 2022",
       end: undefined,
       description:
-        "Senior backend infrastructure engineer focused on Kubernetes control planes, etcd, DNS, federation, container registry, SRE enablement, and platform automation for one of the industry's largest private Kubernetes fleets. Led a registry migration that eliminated six figures per year in vendor cost, improved APIServer reliability with SRE partners, rolled out operator-based automation across 100 etcd clusters, split federation syncing for multi-year scale runway, and adopted AI-assisted, spec-driven workflows while preserving reviewability.",
+        "Senior infrastructure engineer focused on Kubernetes control planes, etcd, DNS, federation, container registry, SRE enablement, and platform automation for one of the industry's largest private Kubernetes fleets. Led a registry migration that eliminated six figures per year in vendor cost, improved APIServer reliability with SRE partners, rolled out operator-based automation across 100 etcd clusters, split federation syncing for multi-year scale runway, and adopted AI-assisted, spec-driven workflows while preserving reviewability.",
     },
     {
+      id: "ebay-mts2-kubernetes-2016",
       company: "eBay",
       href: "https://www.ebay.com",
       badges: [],
@@ -288,6 +302,7 @@ export const DATA = {
         "Built and operated eBay's Kubernetes platform across DNS, federation, control planes, release automation, security hardening, and production support at 60+ clusters, 30K+ nodes, and 160K+ pods. Tuned CoreDNS to reduce query volume 75%, increase QPS 4x, and cut CPU and memory by 80% and 50%. Built GitOps-based federation release automation, credential rotation automation, and clear written practices for remote infrastructure work.",
     },
     {
+      id: "ebay-mts2-database-2013",
       company: "eBay",
       href: "https://www.ebay.com",
       badges: [],
@@ -300,6 +315,7 @@ export const DATA = {
         "Developed database-as-a-service and database failover tooling for MySQL, MongoDB, Couchbase, and Cassandra on eBay infrastructure, with emphasis on testability, operational hardening, and OpenStack-based services. Contributed code, reviews, bugs, documentation, and infrastructure debugging across OpenStack Trove and related OpenStack projects.",
     },
     {
+      id: "xcommerce-mts1-2012",
       company: "X.commerce",
       href: "https://www.ebayinc.com",
       badges: [],
@@ -312,6 +328,7 @@ export const DATA = {
         "Built and operated private OpenStack infrastructure on bare metal, including Nova, Keystone, Glance, Swift, and Cinder. Led replacement of floating-IP failover with Corosync and Pacemaker clustering for more robust VM high availability.",
     },
     {
+      id: "pentaho-senior-software-engineer-2006",
       company: "Pentaho",
       href: "https://www.hitachivantara.com",
       badges: [],
@@ -324,6 +341,7 @@ export const DATA = {
         "Built core backend platform features for business intelligence products, including secured artifact repository architecture, security infrastructure, and open-source integrations. Led product security components, wrote public documentation used by customer-facing teams, contributed to Spring Security, Apache Jackrabbit, CloudInit, and presented at SpringOne Americas.",
     },
     {
+      id: "wyndham-application-software-developer-2003",
       company: "Wyndham Worldwide",
       href: "https://www.travelandleisureco.com",
       badges: [],
@@ -421,6 +439,60 @@ export const DATA = {
         {
           type: "Source",
           href: "https://github.com/mlowery/dotfiles",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
+      title: "fotofolder",
+      href: "https://github.com/mlowery/fotofolder",
+      dates: "",
+      active: true,
+      description: "fotofolder is a Python CLI for copying photo and video archives into a deterministic, date-based folder layout.",
+      technologies: ["Python", "Photography", "CLI"],
+      icon: <Camera size={16} />,
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/mlowery/fotofolder",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
+      title: "usher",
+      href: "https://github.com/mlowery/usher",
+      dates: "",
+      active: true,
+      description: "(U)niversal (S)hell (H)istory - er",
+      technologies: ["Shell", "iTerm2", "Documentation"],
+      icon: <Hand size={16} />,
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/mlowery/usher",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
+      title: "kworx",
+      href: "https://github.com/mlowery/kworx",
+      dates: "",
+      active: true,
+      description: "Multi-threaded kubectl (kubectl with workers)",
+      technologies: ["Go", "Kubernetes", "kubectl"],
+      icon: <Dumbbell size={16} />,
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/mlowery/kworx",
           icon: <Icons.github className="size-3" />,
         },
       ],

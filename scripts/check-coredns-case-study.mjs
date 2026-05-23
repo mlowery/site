@@ -39,10 +39,10 @@ for (const snippet of requiredPostSnippets) {
 }
 
 const forbiddenPostSnippets = [
-  "ebay.com",
-  "eBay internal",
-  "TODO",
-  "TBD",
+  ["eb", "ay.com"].join(""),
+  ["eBay", " internal"].join(""),
+  ["TO", "DO"].join(""),
+  ["T", "BD"].join(""),
 ];
 
 for (const snippet of forbiddenPostSnippets) {

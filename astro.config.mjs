@@ -28,6 +28,16 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      exclude: [
+        '@astrojs/cloudflare/entrypoints/server',
+        'lucide-react',
+        'next-themes',
+      ],
+    },
+    resolve: {
+      dedupe: ['react', 'react-dom'],
+    },
   },
 
   integrations: [

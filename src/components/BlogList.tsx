@@ -34,7 +34,7 @@ export default function BlogList({ posts, allPostsCount, pagination, pageSize }:
           </span>
         </h1>
         <p className="text-sm text-muted-foreground mb-8">
-          Notes from the infrastructure basement.
+          Notes. No SLA. No on-call. Good luck.
         </p>
       </BlurFade>
 

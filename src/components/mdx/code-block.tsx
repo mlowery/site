@@ -5,9 +5,10 @@ import { cn } from "@/lib/utils";
 
 type CodeBlockProps = ComponentProps<"pre"> & {
   "data-title"?: string;
+  tabindex?: string;
 };
 
-export function CodeBlock({ children, ...props }: CodeBlockProps) {
+export function CodeBlock({ children, tabindex, ...props }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
   const title = props["data-title"];
 
@@ -41,7 +42,7 @@ export function CodeBlock({ children, ...props }: CodeBlockProps) {
       >
         {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
       </Button>
-      <pre {...props} className={cn("p-4 m-0! overflow-x-auto text-sm", props.className)}>
+      <pre {...props} tabIndex={tabindex !== undefined ? Number(tabindex) : undefined} className={cn("p-4 m-0! overflow-x-auto text-sm", props.className)}>
         {children}
       </pre>
     </div>

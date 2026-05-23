@@ -1,10 +1,7 @@
 import { Icons } from "@/components/icons";
 import {
   Binoculars,
-  Camera,
-  Dumbbell,
   GitBranch,
-  Hand,
   House,
   Library,
   Mic,
@@ -22,10 +19,9 @@ export const DATA = {
   url: "https://matlowery.com",
   location: "Denver Metropolitan Area",
   locationLink: "https://www.google.com/maps/place/Denver,+CO",
-  description:
-    "I build internal platforms, automation, and developer tools that make complex infrastructure easier to use.",
+  description: "",
   summary:
-    "I'm a senior platform engineer interested in developer productivity, internal tools, and infrastructure that gets out of the way. Over the past decade, I've worked deeply within the Kubernetes ecosystem at large scale. The thread through my work is making complex systems easier for engineers to understand and use.",
+    "I build internal platforms and infrastructure for engineers who have better things to worry about than the platform. A decade at eBay's scale — Kubernetes control planes, etcd, DNS, container registries, federation — taught me that the gap between 'it works' and 'it's easy to operate' is where most of the real work lives.",
   avatarUrl: "/headshot.png",
   ogImage: "/og_image.png",
   sections: {
@@ -54,13 +50,13 @@ export const DATA = {
       enabled: false,
       heading: "Photos",
     },
-    speaking: { order: 9.5, enabled: true, heading: "Speaking" },
+    speaking: { order: 9.5, enabled: false, heading: "Speaking" },
     contact: {
       order: 11,
       enabled: true,
       label: "Contact",
       heading: "Get in Touch",
-      text: "If my background looks relevant to what you're building, LinkedIn is the best way to reach me.",
+      text: "Looking for senior platform engineering work where scale and reliability matter. LinkedIn is the best place to reach me.",
     },
     praise: { order: 10, enabled: true, heading: "Kudos" },
   },
@@ -86,6 +82,7 @@ export const DATA = {
         "Federation",
         "OCI container registries",
         "Quay",
+        "API Priority & Fairness",
       ],
     },
     {
@@ -97,7 +94,7 @@ export const DATA = {
         "Tekton",
         "Linux",
         "Release automation",
-        "Disaster recovery testing",
+        "Disaster recovery",
       ],
     },
     {
@@ -106,7 +103,7 @@ export const DATA = {
     },
     {
       name: "Tools",
-      skills: ["Jira", "Confluence", "VSCode", "iTerm2"],
+      skills: ["Jira", "Confluence", "PagerDuty"],
     },
     {
       name: "Practices",
@@ -248,7 +245,6 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: House, label: "Home" },
-    { href: "/blog", icon: Library, label: "Blog" },
   ],
   contact: {
     email: "mat@matlowery.com",
@@ -359,7 +355,7 @@ export const DATA = {
       school: "University of Central Florida",
       href: "https://www.ucf.edu",
       degree: "Master's Degree, Computer Science",
-      logoUrl: "https://www.google.com/s2/favicons?domain=ucf.edu&sz=128",
+      logoUrl: "/logos/ucf.png",
       start: "2001",
       end: "2003",
     },
@@ -367,14 +363,14 @@ export const DATA = {
       school: "University of Central Florida",
       href: "https://www.ucf.edu",
       degree: "Bachelor's Degree, Computer Science",
-      logoUrl: "https://www.google.com/s2/favicons?domain=ucf.edu&sz=128",
+      logoUrl: "/logos/ucf.png",
       start: "1998",
       end: "2001",
     },
   ],
   projects: [
     {
-      title: "Emcee",
+      title: "emcee",
       href: "https://github.com/mlowery/emcee",
       dates: "",
       active: true,
@@ -439,60 +435,6 @@ export const DATA = {
         {
           type: "Source",
           href: "https://github.com/mlowery/dotfiles",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "fotofolder",
-      href: "https://github.com/mlowery/fotofolder",
-      dates: "",
-      active: true,
-      description: "fotofolder is a Python CLI for copying photo and video archives into a deterministic, date-based folder layout.",
-      technologies: ["Python", "Photography", "CLI"],
-      icon: <Camera size={16} />,
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/mlowery/fotofolder",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "usher",
-      href: "https://github.com/mlowery/usher",
-      dates: "",
-      active: true,
-      description: "(U)niversal (S)hell (H)istory - er",
-      technologies: ["Shell", "iTerm2", "Documentation"],
-      icon: <Hand size={16} />,
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/mlowery/usher",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "kworx",
-      href: "https://github.com/mlowery/kworx",
-      dates: "",
-      active: true,
-      description: "Multi-threaded kubectl (kubectl with workers)",
-      technologies: ["Go", "Kubernetes", "kubectl"],
-      icon: <Dumbbell size={16} />,
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/mlowery/kworx",
           icon: <Icons.github className="size-3" />,
         },
       ],

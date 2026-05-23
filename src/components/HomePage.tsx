@@ -10,20 +10,30 @@ import PhotosSection from "@/components/section/photos-section";
 import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import {
+  AlarmClock,
   ArrowUpRight,
   BookOpen,
   Boxes,
   Cloud,
+  Cpu,
+  Database,
   FileText,
   FlaskConical,
+  Gauge,
+  Globe,
+  ListOrdered,
   MapPin,
   Network,
   PenTool,
+  RefreshCw,
   Repeat2,
+  Scale,
   ServerCog,
   ShieldCheck,
+  Timer,
   Users,
   Workflow,
+  ZapOff,
 } from "lucide-react";
 import {
   SiClaude,
@@ -40,6 +50,7 @@ import {
   SiLinux,
   SiMysql,
   SiOpenstack,
+  SiPagerduty,
   SiPrometheus,
   SiPython,
   SiTekton,
@@ -57,6 +68,7 @@ import {
   SiLinuxHex,
   SiMysqlHex,
   SiOpenstackHex,
+  SiPagerdutyHex,
   SiPrometheusHex,
   SiPythonHex,
   SiTektonHex,
@@ -91,8 +103,9 @@ function SkillLogo({ name }: { name: string }) {
     Grafana: { icon: SiGrafana, color: SiGrafanaHex },
     Jira: { icon: SiJira, color: SiJiraHex },
     Confluence: { icon: SiConfluence, color: SiConfluenceHex },
+    PagerDuty: { icon: SiPagerduty, color: SiPagerdutyHex },
     "Release automation": { icon: Repeat2, color: "currentColor" },
-    "Disaster recovery testing": { icon: ShieldCheck, color: "currentColor" },
+    "Disaster recovery": { icon: ShieldCheck, color: "currentColor" },
     Testing: { icon: FlaskConical, color: "currentColor" },
     Runbooks: { icon: BookOpen, color: "currentColor" },
     Documentation: { icon: FileText, color: "currentColor" },
@@ -100,6 +113,15 @@ function SkillLogo({ name }: { name: string }) {
     "Technical Writing": { icon: PenTool, color: "currentColor" },
     Gemini: { icon: SiGooglegemini, color: SiGooglegeminiHex },
     Claude: { icon: SiClaude, color: SiClaudeHex },
+    "Rate limiting": { icon: Gauge, color: "currentColor" },
+    Retry: { icon: RefreshCw, color: "currentColor" },
+    Backoff: { icon: Timer, color: "currentColor" },
+    Caching: { icon: Database, color: "currentColor" },
+    "Load shedding": { icon: ZapOff, color: "currentColor" },
+    Queuing: { icon: ListOrdered, color: "currentColor" },
+    Timeouts: { icon: AlarmClock, color: "currentColor" },
+    "API Priority & Fairness": { icon: Scale, color: "currentColor" },
+    ReST: { icon: Globe, color: "currentColor" },
   };
   const logoMap: Record<string, string> = {
     Codex: "/logos/codex.svg",
@@ -433,7 +455,7 @@ export default function HomePage() {
     <main className="min-h-dvh flex flex-col gap-14 relative">
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
-          <div className="gap-2 gap-y-6 flex flex-col md:flex-row justify-between">
+          <div className="gap-2 gap-y-6 flex flex-col md:flex-row justify-between md:items-center">
             <div className="gap-2 flex flex-col order-2 md:order-1">
               <BlurFadeText
                 delay={BLUR_FADE_DELAY}
@@ -447,11 +469,13 @@ export default function HomePage() {
                   <span>Denver, CO</span>
                 </div>
               </BlurFade>
-              <BlurFadeText
-                className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
-                delay={BLUR_FADE_DELAY}
-                text={DATA.description}
-              />
+              {DATA.description && (
+                <BlurFadeText
+                  className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
+                  delay={BLUR_FADE_DELAY}
+                  text={DATA.description}
+                />
+              )}
             </div>
             <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
               <Avatar className="size-24 md:size-32 border rounded-full shadow-lg ring-4 ring-muted">

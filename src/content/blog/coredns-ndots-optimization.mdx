@@ -20,7 +20,7 @@ The result was not a broad rewrite of service discovery. It was a narrow fix for
 
 For each pod, kubelet writes an `/etc/resolv.conf`. By default, Kubernetes sets `ndots:5`, which means a DNS name must contain at least five dots before the resolver tries it as written first.
 
-Most application names do not meet that bar. A name such as `mysvc.example.com` looks complete to a human, but with `ndots:5` the resolver first appends the pod's configured search suffixes and tries several expanded names that cannot possibly exist.
+Most application names do not meet that bar. A name such as `mysvc.example.com` looks complete to a human, but with `ndots:5` the resolver first appends the pod's configured search suffixes and tries several expanded names that almost certainly do not exist.
 
 That behavior is correct from the resolver's point of view. At fleet scale, though, it becomes a hidden platform tax: CoreDNS spends CPU, memory, and query capacity answering avoidable misses before the resolver finally asks for the original name.
 

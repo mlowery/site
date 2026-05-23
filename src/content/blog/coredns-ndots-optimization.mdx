@@ -69,6 +69,8 @@ The design was inspired by the community CoreDNS `autopath` plugin, which also a
 
 `autopath` needs pod awareness so it can derive the right search path for each query. That means watching pod state. For this optimization, the useful signal was simpler: configured domains plus conservative regular expressions that identified impossible expanded names.
 
+That simpler design was feasible because the domains that needed interception were only a handful. If the target set had been broad or dynamic, `autopath` would have been the more appropriate design.
+
 Avoiding pod watches kept the design smaller and easier to reason about. It also reduced operational complexity: the plugin could remove a large amount of wasted DNS work without introducing another dependency on full pod state.
 
 ## Impact

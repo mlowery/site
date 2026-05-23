@@ -12,6 +12,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "test:work-ids": "node scripts/check-work-item-ids.mjs",
+    "test:projects": "node scripts/check-personal-projects.mjs",
+    "test:coredns-case-study": "node scripts/check-coredns-case-study.mjs",
     "generate-types": "wrangler types"
   },
   "dependencies": {

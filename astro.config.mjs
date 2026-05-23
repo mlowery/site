@@ -38,6 +38,15 @@ export default defineConfig({
     resolve: {
       dedupe: ['react', 'react-dom'],
     },
+    ssr: {
+      optimizeDeps: {
+        exclude: [
+          '@astrojs/cloudflare/entrypoints/server',
+          'lucide-react',
+          'next-themes',
+        ],
+      },
+    },
   },
 
   integrations: [

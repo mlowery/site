@@ -1,0 +1,90 @@
+---
+title: "Taming Kubernetes' Dreaded ndots"
+publishedAt: "2026-05-23"
+author: "Mat Lowery"
+summary: "How a targeted CoreDNS optimization reduced avoidable Kubernetes DNS query volume by 75%."
+---
+
+Kubernetes DNS can hide a surprising amount of waste behind a small resolver setting. In one large private Kubernetes environment, I traced a major share of DNS traffic back to pod search-path expansion and designed a targeted CoreDNS optimization that reduced DNS query volume by 75%.
+
+The result was not a broad rewrite of service discovery. It was a narrow fix for a specific amplification pattern: application queries that were already effectively absolute, but did not clear Kubernetes' default `ndots:5` threshold.
+
+| Result | Impact |
+| --- | --- |
+| DNS query volume | 75% reduction |
+| CoreDNS QPS capacity | 4x increase |
+| CoreDNS CPU | 80% reduction |
+| CoreDNS memory | 50% reduction |
+
+## The Hidden Tax
+
+For each pod, kubelet writes an `/etc/resolv.conf`. By default, Kubernetes sets `ndots:5`, which means a DNS name must contain at least five dots before the resolver tries it as written first.
+
+Most application names do not meet that bar. A name such as `mysvc.example.com` looks complete to a human, but with `ndots:5` the resolver first appends the pod's configured search suffixes and tries several expanded names that cannot possibly exist.
+
+That behavior is correct from the resolver's point of view. At fleet scale, though, it becomes a hidden platform tax: CoreDNS spends CPU, memory, and query capacity answering avoidable misses before the resolver finally asks for the original name.
+
+## Before: Search Path Amplification
+
+The problematic pattern looked like this:
+
+```text
+App asks for:
+mysvc.example.com
+
+Resolver tries:
+1. mysvc.example.com.<namespace>.svc.cluster.local
+2. mysvc.example.com.svc.cluster.local
+3. mysvc.example.com.cluster.local
+4. mysvc.example.com.<internal search suffix>
+5. mysvc.example.com
+```
+
+The early attempts are noise. They combine an already meaningful external-style name with Kubernetes search-path suffixes. The resolver still has to try them, and CoreDNS still has to process them.
+
+## The Design
+
+The optimization was a CoreDNS plugin configured with one or more domains, such as `example.com`. For those domains, the plugin looked for expanded query names that matched known nonsense patterns.
+
+At a high level, the decision flow was:
+
+```text
+CoreDNS receives:
+mysvc.example.com.<namespace>.svc.cluster.local
+
+Plugin checks:
+- Does the query contain a configured domain such as example.com?
+- Does the suffix after that domain look like Kubernetes search-path noise?
+- Does the full query match one of the conservative nonsense-name patterns?
+
+If yes:
+respond as if a CNAME-style shortcut exists to mysvc.example.com
+```
+
+The key was restraint. The plugin did not try to solve every search-path problem. It only recognized names that were clear artifacts of `ndots` expansion and redirected the resolver toward the name it was going to try eventually.
+
+## Why Not autopath?
+
+The design was inspired by the community CoreDNS `autopath` plugin, which also addresses search-path behavior. But this use case did not need the full generality of `autopath`.
+
+`autopath` needs pod awareness so it can derive the right search path for each query. That means watching pod state. For this optimization, the useful signal was simpler: configured domains plus conservative regular expressions that identified impossible expanded names.
+
+Avoiding pod watches kept the design smaller and easier to reason about. It also reduced operational complexity: the plugin could remove a large amount of wasted DNS work without introducing another dependency on full pod state.
+
+## Impact
+
+The effect was large because the waste was repeated everywhere. Once the plugin intercepted the common nonsense expansions, CoreDNS stopped spending most of its effort on queries that existed only because of resolver search-path behavior.
+
+The measured outcome:
+
+- DNS query volume dropped by 75%.
+- CoreDNS QPS capacity increased 4x.
+- CoreDNS CPU usage dropped by 80%.
+- CoreDNS memory usage dropped by 50%.
+
+The broader lesson was that infrastructure performance work is often about finding amplification. A small default can be reasonable in isolation and still become expensive when multiplied across every pod, every process, and every lookup path.
+
+## References
+
+- John Belamaric and Cricket Liu, *Learning CoreDNS: Configuring DNS for Cloud Native Environments*, O'Reilly.
+- CoreDNS `autopath` plugin documentation: <https://coredns.io/plugins/autopath/>

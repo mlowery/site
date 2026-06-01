@@ -285,8 +285,8 @@ export const DATA = {
         "Senior infrastructure engineer focused on Kubernetes control planes, etcd, DNS, federation, container registry, SRE enablement, and platform automation for one of the industry's largest private Kubernetes fleets. Led a registry migration that eliminated six figures per year in vendor cost, improved APIServer reliability with SRE partners, rolled out operator-based automation across 100 etcd clusters, split federation syncing for multi-year scale runway, and adopted AI-assisted, spec-driven workflows while preserving reviewability.",
       bullets: [
         "Senior infrastructure engineer focused on Kubernetes control planes, etcd, DNS, federation, container registry, SRE enablement, and platform automation for one of the industry's largest private Kubernetes fleets",
-        "Led a registry migration that eliminated six figures per year in vendor cost",
-        "Improved APIServer reliability with SRE partners",
+        "Led a container registry migration that eliminated six figures per year in vendor cost",
+        "Improved APIServer reliability with SRE partners, reducing pager volume 50%",
         "Rolled out operator-based automation across 100 etcd clusters",
         "Split federation syncing for multi-year scale runway",
       ],
@@ -306,7 +306,7 @@ export const DATA = {
       bullets: [
         "Built and operated eBay's Kubernetes platform across DNS, federation, control planes, release automation, security hardening, and production support at 60+ clusters, 30K+ nodes, and 160K+ pods",
         "Tuned CoreDNS to reduce query volume 75%, increase QPS 4x, and cut CPU and memory by 80% and 50%",
-        "Built GitOps-based federation release automation and credential rotation automation",
+        "Built GitOps-based federation release and credential rotation automation",
       ],
     },
     {
@@ -322,7 +322,8 @@ export const DATA = {
       description:
         "Developed database-as-a-service and database failover tooling for MySQL, MongoDB, Couchbase, and Cassandra on eBay infrastructure, with emphasis on testability, operational hardening, and OpenStack-based services. Contributed code, reviews, bugs, documentation, and infrastructure debugging across OpenStack Trove and related OpenStack projects.",
       bullets: [
-        "Developed database-as-a-service and database failover tooling for MySQL, MongoDB, Couchbase, and Cassandra on eBay infrastructure, with emphasis on testability, operational hardening, and OpenStack-based services",
+        "Developed database-as-a-service tooling for MySQL, MongoDB, Couchbase, and Cassandra on eBay infrastructure, with emphasis on testability, operational hardening, and OpenStack-based services",
+        "Hardened database failover tooling by raising test coverage from 0% to 75% with dependency fakes, mocks, and minimal core-code changes",
         "Contributed code, reviews, bugs, documentation, and infrastructure debugging across OpenStack Trove and related OpenStack projects",
       ],
     },

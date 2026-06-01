@@ -25,7 +25,13 @@ export function buildHtml(data: ResumeData): string {
       <div class="impact-desc">${esc(item.description)}</div>
     </div>`).join('');
 
-  const workHtml = work.map(job => `
+  const workHtml = work.map(job => {
+    const phrases = job.description
+      .split(/\.\s+(?=[A-Z])/)
+      .map(s => s.replace(/\.$/, '').trim())
+      .filter(Boolean);
+    const descHtml = phrases.map(p => esc(p)).join(' <span class="bullet-sep">&middot;</span> ');
+    return `
     <div class="work-entry">
       <div class="work-header">
         <div>
@@ -35,8 +41,9 @@ export function buildHtml(data: ResumeData): string {
         </div>
         <span class="work-dates">${esc(job.start)} – ${job.end ? esc(job.end) : 'Present'}</span>
       </div>
-      <p class="work-desc">${esc(job.description)}</p>
-    </div>`).join('');
+      <p class="work-desc">${descHtml}</p>
+    </div>`;
+  }).join('');
 
   const educationHtml = education.map(edu => `
     <div class="edu-entry">
@@ -54,18 +61,16 @@ export function buildHtml(data: ResumeData): string {
         <div class="os-entry">
           <span class="os-project">${esc(h.project)}</span>
           <span class="os-sep"> — </span>
-          <span class="os-title">${esc(h.title)}</span>
+          <a class="os-title-link" href="${esc(h.url)}">${esc(h.title)}</a>
           <span class="os-detail">: ${esc(h.detail)}</span>
-          <a class="os-url" href="${esc(h.url)}">${esc(h.url)}</a>
         </div>`).join('')}
     </div>`).join('');
 
   const projectsHtml = projects.map(p => `
     <div class="project-entry">
-      <span class="project-name">${esc(p.title)}</span>
+      <a class="project-name-link" href="${esc(p.href)}">${esc(p.title)}</a>
       <span class="project-sep"> — </span>
       <span class="project-desc">${esc(p.description)}</span>
-      <div class="project-tags">${[...p.technologies].map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
     </div>`).join('');
 
   return `<!DOCTYPE html>
@@ -122,6 +127,7 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
 .work-title { color: #555; }
 .work-dates { font-size: 9px; color: #888; white-space: nowrap; flex-shrink: 0; }
 .work-desc { color: #444; margin-top: 3px; }
+.bullet-sep { color: #bbb; margin: 0 1px; }
 .edu-entry {
   display: flex;
   justify-content: space-between;
@@ -137,28 +143,14 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
 .os-entry { margin-bottom: 4px; }
 .os-project { font-weight: 600; }
 .os-sep { color: #bbb; }
-.os-title { font-style: italic; color: #333; }
+.os-title-link { color: #4f46e5; text-decoration: none; font-style: italic; }
+.os-title-link:hover { text-decoration: underline; }
 .os-detail { color: #444; }
-.os-url {
-  display: block;
-  color: #4f46e5;
-  text-decoration: none;
-  font-size: 8px;
-  margin-top: 1px;
-}
 .project-entry { margin-bottom: 7px; }
-.project-name { font-weight: 700; }
+.project-name-link { font-weight: 700; color: #4f46e5; text-decoration: none; }
+.project-name-link:hover { text-decoration: underline; }
 .project-sep { color: #bbb; }
 .project-desc { color: #444; }
-.project-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 3px; }
-.tag {
-  font-size: 8px;
-  color: #555;
-  background: #f0f0f8;
-  border: 1px solid #e0e0ee;
-  border-radius: 3px;
-  padding: 1px 5px;
-}
 </style>
 </head>
 <body>

@@ -9,7 +9,9 @@ assert(html.startsWith('<!DOCTYPE html>'), 'should start with doctype');
 assert(html.includes(DATA.name), `should include name: ${DATA.name}`);
 assert(html.includes(DATA.summary), 'should include summary');
 assert(html.includes(DATA.work[0].company), 'should include first employer');
-assert(html.includes(DATA.work[0].description), 'should include first job description');
+// Description is split into bullet phrases; check a phrase fragment from each sentence
+assert(html.includes('Kubernetes control planes'), 'should include first job description phrase');
+assert(html.includes('registry migration'), 'should include second phrase from first job');
 assert(html.includes(DATA.impact[0].value), 'should include first impact value');
 assert(html.includes(DATA.impact[0].label), 'should include first impact label');
 assert(html.includes(DATA.education[0].school), 'should include first school');

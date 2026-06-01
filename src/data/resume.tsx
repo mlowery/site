@@ -301,7 +301,7 @@ export const DATA = {
       start: "May 2016",
       end: "Feb 2022",
       bullets: [
-        "Built and operated eBay's Kubernetes platform across DNS, federation, control planes, release automation, security hardening, and production support at 60+ clusters, 30K+ nodes, and 160K+ pods",
+        "Built and operated eBay's Kubernetes platform including the control planes themselves on eBay compute and additionally cluster DNS, cluster federation, release automation, security hardening, and production support at 60+ clusters, 30K+ nodes, and 160K+ pods",
         "Tuned CoreDNS to reduce query volume 75%, increase QPS 4x, and cut CPU and memory by 80% and 50%",
         "Built GitOps-based federation release and credential rotation automation",
       ],

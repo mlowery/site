@@ -15,7 +15,8 @@
     "test:work-ids": "node scripts/check-work-item-ids.mjs",
     "test:projects": "node scripts/check-personal-projects.mjs",
     "test:coredns-case-study": "node scripts/check-coredns-case-study.mjs",
-    "generate-types": "wrangler types"
+    "generate-types": "wrangler types",
+    "resume": "npx tsx scripts/generate-resume.ts"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.3.0",

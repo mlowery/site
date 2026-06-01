@@ -164,6 +164,28 @@ You need both a sans and a mono font. The mono font (`--font-mono`) is used for 
 | `pnpm build` | Build for production |
 | `pnpm preview` | Preview production build locally |
 
+## Generating a PDF resume
+
+The repo includes a script that renders `src/data/resume.tsx` to a print-ready PDF via headless Chromium (Puppeteer).
+
+```bash
+npm run resume
+# output: dist/resume.pdf
+```
+
+**What it includes:** summary, impact metrics, work experience, education, open source contributions, personal projects. Skills appear inline rather than as a standalone section.
+
+**How it works:**
+
+1. `scripts/resume-html.ts` — reads `DATA` from `src/data/resume.tsx` and builds a self-contained HTML string (CSS embedded, no external resources).
+2. `scripts/generate-resume.ts` — launches Puppeteer, renders the HTML, and writes `dist/resume.pdf` (Letter, portrait).
+
+**To update content:** edit `src/data/resume.tsx` and re-run `npm run resume`. Work experience entries have a `bullets` array (used by the PDF) alongside the `description` string (used by the website).
+
+**To adjust layout or styling:** edit `scripts/resume-html.ts` and re-run.
+
+**Tests:** `npx tsx scripts/resume-html.test.ts` — smoke-tests that key content from `DATA` appears in the generated HTML.
+
 ## Deployment
 
 Pre-configured for **Cloudflare Workers or Pages** via `@astrojs/cloudflare`. Run `pnpm build` and deploy the `dist/` folder.

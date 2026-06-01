@@ -1,13 +1,14 @@
 // scripts/generate-resume.ts
 import puppeteer from 'puppeteer';
-import { writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { DATA } from '../src/data/resume';
 import { buildHtml } from './resume-html';
 
 async function main() {
   const html = buildHtml(DATA);
-  const outPath = resolve('resume.pdf');
+  const outPath = resolve('dist/resume.pdf');
+  mkdirSync(resolve('dist'), { recursive: true });
 
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();

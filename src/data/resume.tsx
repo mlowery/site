@@ -283,6 +283,13 @@ export const DATA = {
       end: "Apr 2026",
       description:
         "Senior infrastructure engineer focused on Kubernetes control planes, etcd, DNS, federation, container registry, SRE enablement, and platform automation for one of the industry's largest private Kubernetes fleets. Led a registry migration that eliminated six figures per year in vendor cost, improved APIServer reliability with SRE partners, rolled out operator-based automation across 100 etcd clusters, split federation syncing for multi-year scale runway, and adopted AI-assisted, spec-driven workflows while preserving reviewability.",
+      bullets: [
+        "Senior infrastructure engineer focused on Kubernetes control planes, etcd, DNS, federation, container registry, SRE enablement, and platform automation for one of the industry's largest private Kubernetes fleets",
+        "Led a registry migration that eliminated six figures per year in vendor cost",
+        "Improved APIServer reliability with SRE partners",
+        "Rolled out operator-based automation across 100 etcd clusters",
+        "Split federation syncing for multi-year scale runway; adopted AI-assisted, spec-driven workflows while preserving reviewability",
+      ],
     },
     {
       id: "ebay-mts2-kubernetes-2016",
@@ -296,6 +303,11 @@ export const DATA = {
       end: "Feb 2022",
       description:
         "Built and operated eBay's Kubernetes platform across DNS, federation, control planes, release automation, security hardening, and production support at 60+ clusters, 30K+ nodes, and 160K+ pods. Tuned CoreDNS to reduce query volume 75%, increase QPS 4x, and cut CPU and memory by 80% and 50%. Built GitOps-based federation release automation, credential rotation automation, and clear written practices for remote infrastructure work.",
+      bullets: [
+        "Built and operated eBay's Kubernetes platform across DNS, federation, control planes, release automation, security hardening, and production support at 60+ clusters, 30K+ nodes, and 160K+ pods",
+        "Tuned CoreDNS to reduce query volume 75%, increase QPS 4x, and cut CPU and memory by 80% and 50%",
+        "Built GitOps-based federation release automation, credential rotation automation, and clear written practices for remote infrastructure work",
+      ],
     },
     {
       id: "ebay-mts2-database-2013",
@@ -309,6 +321,10 @@ export const DATA = {
       end: "Apr 2016",
       description:
         "Developed database-as-a-service and database failover tooling for MySQL, MongoDB, Couchbase, and Cassandra on eBay infrastructure, with emphasis on testability, operational hardening, and OpenStack-based services. Contributed code, reviews, bugs, documentation, and infrastructure debugging across OpenStack Trove and related OpenStack projects.",
+      bullets: [
+        "Developed database-as-a-service and database failover tooling for MySQL, MongoDB, Couchbase, and Cassandra on eBay infrastructure, with emphasis on testability, operational hardening, and OpenStack-based services",
+        "Contributed code, reviews, bugs, documentation, and infrastructure debugging across OpenStack Trove and related OpenStack projects",
+      ],
     },
     {
       id: "xcommerce-mts1-2012",
@@ -322,6 +338,10 @@ export const DATA = {
       end: "Nov 2013",
       description:
         "Built and operated private OpenStack infrastructure on bare metal, including Nova, Keystone, Glance, Swift, and Cinder. Led replacement of floating-IP failover with Corosync and Pacemaker clustering for more robust VM high availability.",
+      bullets: [
+        "Built and operated private OpenStack infrastructure on bare metal, including Nova, Keystone, Glance, Swift, and Cinder",
+        "Led replacement of floating-IP failover with Corosync and Pacemaker clustering for more robust VM high availability",
+      ],
     },
     {
       id: "pentaho-senior-software-engineer-2006",
@@ -335,6 +355,11 @@ export const DATA = {
       end: "Apr 2012",
       description:
         "Built core backend platform features for business intelligence products, including secured artifact repository architecture, security infrastructure, and open-source integrations. Led product security components, wrote public documentation used by customer-facing teams, contributed to Spring Security, Apache Jackrabbit, CloudInit, and presented at SpringOne Americas.",
+      bullets: [
+        "Built core backend platform features for business intelligence products, including secured artifact repository architecture, security infrastructure, and open-source integrations",
+        "Led product security components and wrote public documentation used by customer-facing teams",
+        "Contributed to Spring Security, Apache Jackrabbit, and CloudInit; presented at SpringOne Americas",
+      ],
     },
     {
       id: "wyndham-application-software-developer-2003",
@@ -348,6 +373,9 @@ export const DATA = {
       end: "Sep 2006",
       description:
         "Built enterprise web application infrastructure for customer-facing systems, with focus on security, shared services, reusable application layers, and user-management services across Active Directory and Oracle user stores.",
+      bullets: [
+        "Built enterprise web application infrastructure for customer-facing systems, with focus on security, shared services, reusable application layers, and user-management services across Active Directory and Oracle user stores",
+      ],
     },
   ],
   education: [
@@ -417,24 +445,6 @@ export const DATA = {
         {
           type: "Source",
           href: "https://github.com/mlowery/executable-image",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "dotfiles",
-      href: "https://github.com/mlowery/dotfiles",
-      dates: "",
-      active: true,
-      description: "Personal dotfiles for shell, terminal, macOS, and development productivity.",
-      technologies: ["Shell", "Git"],
-      icon: <GitBranch size={16} />,
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/mlowery/dotfiles",
           icon: <Icons.github className="size-3" />,
         },
       ],

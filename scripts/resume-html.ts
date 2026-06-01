@@ -26,9 +26,10 @@ export function buildHtml(data: ResumeData): string {
     </div>`).join('');
 
   const workHtml = work.map(job => {
-    const phrases = job.description
+    const anyJob = job as any;
+    const phrases: string[] = anyJob.bullets ?? job.description
       .split(/\.\s+(?=[A-Z])/)
-      .map(s => s.replace(/\.$/, '').trim())
+      .map((s: string) => s.replace(/\.$/, '').trim())
       .filter(Boolean);
     const descHtml = phrases.map(p => esc(p)).join(' <span class="bullet-sep">&bull;</span> ');
     return `
@@ -125,7 +126,7 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
 .work-title { color: #555; }
 .work-dates { font-size: 9px; color: #888; white-space: nowrap; flex-shrink: 0; }
 .work-desc { color: #444; margin-top: 3px; }
-.bullet-sep { color: #666; margin: 0 2px; font-size: 9px; }
+.bullet-sep { color: #4f46e5; font-weight: 700; margin: 0 3px; }
 .edu-entry {
   display: flex;
   justify-content: space-between;

@@ -287,7 +287,7 @@ export const DATA = {
         "Led a container registry migration that eliminated six figures per year in vendor cost",
         "Improved APIServer reliability with SRE partners, reducing pager volume 50%",
         "Rolled out operator-based automation across 100 etcd clusters",
-        "Split federation syncing for multi-year scale runway",
+        "Sharded federation syncing for multi-year scale runway",
       ],
     },
     {

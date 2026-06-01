@@ -137,6 +137,7 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
 .edu-school { font-weight: 600; }
 .edu-degree { color: #555; }
 .edu-dates { font-size: 9px; color: #888; white-space: nowrap; flex-shrink: 0; }
+.page-2-header { break-before: page; margin-bottom: 14px; }
 .os-entry { margin-bottom: 5px; }
 .os-project { font-weight: 600; }
 .os-sep { color: #bbb; }
@@ -182,6 +183,17 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
   <div class="section-heading">Education</div>
   ${educationHtml}
 </div>
+
+<div class="page-2-header">
+  <div class="header-name">${esc(name)}</div>
+  <div class="header-title">${esc(recentTitle)} &middot; Denver, CO</div>
+  <div class="header-contact">
+    <a href="${esc(contact.social.GitHub.url)}">${esc(githubDisplay)}</a>
+    &nbsp;&middot;&nbsp;
+    <a href="${esc(contact.social.LinkedIn.url)}">${esc(linkedinDisplay)}</a>
+  </div>
+</div>
+<hr>
 
 <div class="section">
   <div class="section-heading">Open Source</div>

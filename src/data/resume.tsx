@@ -277,7 +277,7 @@ export const DATA = {
       href: "https://www.ebay.com",
       badges: [],
       location: "Remote",
-      title: "Sr. MTS, Software Engineer",
+      title: "Senior Software Engineer",
       logoUrl: "/logos/ebay.svg",
       start: "Feb 2022",
       end: "Apr 2026",

@@ -56,7 +56,11 @@
     "vite": "^7"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild", "sharp", "workerd"],
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp",
+      "workerd"
+    ],
     "peerDependencyRules": {
       "allowedVersions": {
         "tsconfck>typescript": "6"
@@ -65,6 +69,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
+    "puppeteer": "^25.1.0",
     "typescript": "^6.0.3"
   }
 }

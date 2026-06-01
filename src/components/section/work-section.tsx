@@ -75,8 +75,13 @@ export default function WorkSection() {
               </div>
             </div>
           </AccordionTrigger>
-          <AccordionContent className="p-0 ml-13 text-xs sm:text-sm text-muted-foreground">
-            {work.description}
+          <AccordionContent className="p-0 ml-13 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            {(work.bullets as readonly string[]).map((bullet, i) => (
+              <span key={i}>
+                {i > 0 && <span className="mx-1.5 font-bold text-primary">•</span>}
+                {bullet}
+              </span>
+            ))}
           </AccordionContent>
         </AccordionItem>
       ))}

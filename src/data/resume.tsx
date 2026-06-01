@@ -281,8 +281,6 @@ export const DATA = {
       logoUrl: "/logos/ebay.svg",
       start: "Feb 2022",
       end: "Apr 2026",
-      description:
-        "Senior infrastructure engineer focused on Kubernetes control planes, etcd, DNS, federation, container registry, SRE enablement, and platform automation for one of the industry's largest private Kubernetes fleets. Led a registry migration that eliminated six figures per year in vendor cost, improved APIServer reliability with SRE partners, rolled out operator-based automation across 100 etcd clusters, split federation syncing for multi-year scale runway, and adopted AI-assisted, spec-driven workflows while preserving reviewability.",
       bullets: [
         "Senior infrastructure engineer focused on Kubernetes control planes, etcd, DNS, federation, container registry, SRE enablement, and platform automation for one of the industry's largest private Kubernetes fleets",
         "Led a container registry migration that eliminated six figures per year in vendor cost",
@@ -301,8 +299,6 @@ export const DATA = {
       logoUrl: "/logos/ebay.svg",
       start: "May 2016",
       end: "Feb 2022",
-      description:
-        "Built and operated eBay's Kubernetes platform across DNS, federation, control planes, release automation, security hardening, and production support at 60+ clusters, 30K+ nodes, and 160K+ pods. Tuned CoreDNS to reduce query volume 75%, increase QPS 4x, and cut CPU and memory by 80% and 50%. Built GitOps-based federation release automation, credential rotation automation, and clear written practices for remote infrastructure work.",
       bullets: [
         "Built and operated eBay's Kubernetes platform across DNS, federation, control planes, release automation, security hardening, and production support at 60+ clusters, 30K+ nodes, and 160K+ pods",
         "Tuned CoreDNS to reduce query volume 75%, increase QPS 4x, and cut CPU and memory by 80% and 50%",
@@ -319,8 +315,6 @@ export const DATA = {
       logoUrl: "/logos/ebay.svg",
       start: "Nov 2013",
       end: "Apr 2016",
-      description:
-        "Developed database-as-a-service and database failover tooling for MySQL, MongoDB, Couchbase, and Cassandra on eBay infrastructure, with emphasis on testability, operational hardening, and OpenStack-based services. Contributed code, reviews, bugs, documentation, and infrastructure debugging across OpenStack Trove and related OpenStack projects.",
       bullets: [
         "Developed database-as-a-service for MySQL, MongoDB, Couchbase, and Cassandra on eBay infrastructure",
         "Hardened database failover tooling by raising test coverage from 0% to 75% with dependency fakes, mocks, and minimal core-code changes",
@@ -337,8 +331,6 @@ export const DATA = {
       logoUrl: "/logos/xcommerce.jpg",
       start: "Apr 2012",
       end: "Nov 2013",
-      description:
-        "Built and operated private OpenStack infrastructure on bare metal, including Nova, Keystone, Glance, Swift, and Cinder. Led replacement of floating-IP failover with Corosync and Pacemaker clustering for more robust VM high availability.",
       bullets: [
         "Built and operated private OpenStack infrastructure on bare metal, including Nova, Keystone, Glance, Swift, and Cinder",
         "Led replacement of floating-IP failover with Corosync and Pacemaker clustering for more robust VM high availability",
@@ -354,8 +346,6 @@ export const DATA = {
       logoUrl: "/logos/pentaho.svg",
       start: "Oct 2006",
       end: "Apr 2012",
-      description:
-        "Built core backend platform features for business intelligence products, including secured artifact repository architecture, security infrastructure, and open-source integrations. Led product security components, wrote public documentation used by customer-facing teams, contributed to Spring Security, Apache Jackrabbit, CloudInit, and presented at SpringOne Americas.",
       bullets: [
         "Built core backend platform features for business intelligence products, including secured artifact repository architecture, security infrastructure, and open-source integrations",
         "Led product security components and wrote public documentation used by customer-facing teams",
@@ -372,8 +362,6 @@ export const DATA = {
       logoUrl: "/logos/wyndham.svg",
       start: "Oct 2003",
       end: "Sep 2006",
-      description:
-        "Built enterprise web application infrastructure for customer-facing systems, with focus on security, shared services, reusable application layers, and user-management services across Active Directory and Oracle user stores.",
       bullets: [
         "Built enterprise web application infrastructure for customer-facing systems, with focus on security, shared services, reusable application layers, and user-management services across Active Directory and Oracle user stores",
       ],

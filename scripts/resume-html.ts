@@ -26,11 +26,7 @@ export function buildHtml(data: ResumeData): string {
     </div>`).join('');
 
   const workHtml = work.map(job => {
-    const anyJob = job as any;
-    const phrases: string[] = anyJob.bullets ?? job.description
-      .split(/\.\s+(?=[A-Z])/)
-      .map((s: string) => s.replace(/\.$/, '').trim())
-      .filter(Boolean);
+    const phrases: string[] = [...(job as any).bullets];
     const descHtml = phrases.map(p => esc(p)).join(' <span class="bullet-sep">&bull;</span> ');
     return `
     <div class="work-entry">

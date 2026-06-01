@@ -322,7 +322,7 @@ export const DATA = {
       description:
         "Developed database-as-a-service and database failover tooling for MySQL, MongoDB, Couchbase, and Cassandra on eBay infrastructure, with emphasis on testability, operational hardening, and OpenStack-based services. Contributed code, reviews, bugs, documentation, and infrastructure debugging across OpenStack Trove and related OpenStack projects.",
       bullets: [
-        "Developed database-as-a-service tooling for MySQL, MongoDB, Couchbase, and Cassandra on eBay infrastructure, with emphasis on testability, operational hardening, and OpenStack-based services",
+        "Developed database-as-a-service for MySQL, MongoDB, Couchbase, and Cassandra on eBay infrastructure",
         "Hardened database failover tooling by raising test coverage from 0% to 75% with dependency fakes, mocks, and minimal core-code changes",
         "Contributed code, reviews, bugs, documentation, and infrastructure debugging across OpenStack Trove and related OpenStack projects",
       ],

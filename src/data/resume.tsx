@@ -283,7 +283,7 @@ export const DATA = {
       start: "Feb 2022",
       end: "Apr 2026",
       bullets: [
-        "Senior infrastructure engineer focused on Kubernetes control planes, etcd, DNS, federation, container registry, SRE enablement, and platform automation for one of the industry's largest private Kubernetes fleets",
+        "Owned and operated Kubernetes control planes, etcd, DNS, federation, container registry, and platform automation at one of the industry's largest private Kubernetes fleets",
         "Led a container registry migration that eliminated six figures per year in vendor cost",
         "Improved APIServer reliability with SRE partners, reducing pager volume 50%",
         "Rolled out operator-based automation across 100 etcd clusters",

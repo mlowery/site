@@ -280,7 +280,7 @@ export const DATA = {
       title: "Sr. MTS, Software Engineer",
       logoUrl: "/logos/ebay.svg",
       start: "Feb 2022",
-      end: undefined,
+      end: "Apr 2026",
       description:
         "Senior infrastructure engineer focused on Kubernetes control planes, etcd, DNS, federation, container registry, SRE enablement, and platform automation for one of the industry's largest private Kubernetes fleets. Led a registry migration that eliminated six figures per year in vendor cost, improved APIServer reliability with SRE partners, rolled out operator-based automation across 100 etcd clusters, split federation syncing for multi-year scale runway, and adopted AI-assisted, spec-driven workflows while preserving reviewability.",
     },

@@ -30,7 +30,7 @@ export function buildHtml(data: ResumeData): string {
       .split(/\.\s+(?=[A-Z])/)
       .map(s => s.replace(/\.$/, '').trim())
       .filter(Boolean);
-    const descHtml = phrases.map(p => esc(p)).join(' <span class="bullet-sep">&middot;</span> ');
+    const descHtml = phrases.map(p => esc(p)).join(' <span class="bullet-sep">&bull;</span> ');
     return `
     <div class="work-entry">
       <div class="work-header">
@@ -54,17 +54,15 @@ export function buildHtml(data: ResumeData): string {
       <span class="edu-dates">${esc(edu.start)} – ${esc(edu.end)}</span>
     </div>`).join('');
 
-  const openSourceHtml = openSource.map(group => `
-    <div class="os-group">
-      <div class="os-group-name">${esc(group.name)}</div>
-      ${group.highlights.map(h => `
-        <div class="os-entry">
-          <span class="os-project">${esc(h.project)}</span>
-          <span class="os-sep"> — </span>
-          <a class="os-title-link" href="${esc(h.url)}">${esc(h.title)}</a>
-          <span class="os-detail">: ${esc(h.detail)}</span>
-        </div>`).join('')}
-    </div>`).join('');
+  const openSourceHtml = openSource.flatMap(group =>
+    group.highlights.map(h => `
+      <div class="os-entry">
+        <span class="os-project">${esc(h.project)}</span>
+        <span class="os-sep"> — </span>
+        <a class="os-title-link" href="${esc(h.url)}">${esc(h.title)}</a>
+        <span class="os-detail">: ${esc(h.detail)}</span>
+      </div>`)
+  ).join('');
 
   const projectsHtml = projects.map(p => `
     <div class="project-entry">
@@ -127,7 +125,7 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
 .work-title { color: #555; }
 .work-dates { font-size: 9px; color: #888; white-space: nowrap; flex-shrink: 0; }
 .work-desc { color: #444; margin-top: 3px; }
-.bullet-sep { color: #bbb; margin: 0 1px; }
+.bullet-sep { color: #666; margin: 0 2px; font-size: 9px; }
 .edu-entry {
   display: flex;
   justify-content: space-between;
@@ -138,9 +136,7 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
 .edu-school { font-weight: 600; }
 .edu-degree { color: #555; }
 .edu-dates { font-size: 9px; color: #888; white-space: nowrap; flex-shrink: 0; }
-.os-group { margin-bottom: 9px; }
-.os-group-name { font-weight: 600; font-size: 9.5px; color: #333; margin-bottom: 5px; }
-.os-entry { margin-bottom: 4px; }
+.os-entry { margin-bottom: 5px; }
 .os-project { font-weight: 600; }
 .os-sep { color: #bbb; }
 .os-title-link { color: #4f46e5; text-decoration: none; font-style: italic; }

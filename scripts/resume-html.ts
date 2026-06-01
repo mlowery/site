@@ -16,7 +16,7 @@ export function buildHtml(data: ResumeData): string {
 
   const githubDisplay = contact.social.GitHub.url.replace('https://', '');
   const linkedinDisplay = contact.social.LinkedIn.url.replace('https://', '');
-  const recentTitle = work[0].title;
+  const title = (data as any).title as string;
 
   const impactHtml = impact.map(item => `
     <div class="impact-card">
@@ -151,7 +151,7 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
 
 <div class="header">
   <div class="header-name">${esc(name)}</div>
-  <div class="header-title">${esc(recentTitle)} &middot; Denver, CO</div>
+  <div class="header-title">${esc(title)} &middot; Denver, CO</div>
   <div class="header-contact">
     <a href="${esc(contact.social.GitHub.url)}">${esc(githubDisplay)}</a>
     &nbsp;&middot;&nbsp;
@@ -182,7 +182,7 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
 
 <div class="page-2-header">
   <div class="header-name">${esc(name)}</div>
-  <div class="header-title">${esc(recentTitle)} &middot; Denver, CO</div>
+  <div class="header-title">${esc(title)} &middot; Denver, CO</div>
   <div class="header-contact">
     <a href="${esc(contact.social.GitHub.url)}">${esc(githubDisplay)}</a>
     &nbsp;&middot;&nbsp;

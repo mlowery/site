@@ -464,6 +464,9 @@ export default function HomePage() {
                 text={DATA.name}
               />
               <BlurFade delay={BLUR_FADE_DELAY * 2}>
+                <span className="text-base text-muted-foreground">{DATA.title}</span>
+              </BlurFade>
+              <BlurFade delay={BLUR_FADE_DELAY * 2}>
                 <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
                   <MapPin className="size-4" aria-hidden />
                   <span>Denver, CO</span>

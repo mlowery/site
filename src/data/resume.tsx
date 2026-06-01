@@ -16,6 +16,7 @@ import { Kubernetes } from "@/components/ui/svgs/kubernetes";
 export const DATA = {
   name: "Mat Lowery",
   initials: "ML",
+  title: "Software Engineer",
   url: "https://matlowery.com",
   location: "Denver Metropolitan Area",
   locationLink: "https://www.google.com/maps/place/Denver,+CO",

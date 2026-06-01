@@ -21,7 +21,7 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/Denver,+CO",
   description: "",
   summary:
-    "I build internal platforms and infrastructure for engineers who have better things to worry about than the platform. A decade at eBay's scale — Kubernetes control planes, etcd, DNS, container registries, federation — taught me that the gap between 'it works' and 'it's easy to operate' is where most of the real work lives.",
+    "I build internal platforms and infrastructure for engineers who have better things to worry about. A decade at eBay's scale — Kubernetes control planes, etcd, DNS, container registries, federation — taught me that the gap between 'it works' and 'it's easy to operate' is where most of the real work lives.",
   avatarUrl: "/headshot.png",
   ogImage: "/og_image.png",
   sections: {
@@ -288,7 +288,7 @@ export const DATA = {
         "Led a registry migration that eliminated six figures per year in vendor cost",
         "Improved APIServer reliability with SRE partners",
         "Rolled out operator-based automation across 100 etcd clusters",
-        "Split federation syncing for multi-year scale runway; adopted AI-assisted, spec-driven workflows while preserving reviewability",
+        "Split federation syncing for multi-year scale runway",
       ],
     },
     {
@@ -306,7 +306,7 @@ export const DATA = {
       bullets: [
         "Built and operated eBay's Kubernetes platform across DNS, federation, control planes, release automation, security hardening, and production support at 60+ clusters, 30K+ nodes, and 160K+ pods",
         "Tuned CoreDNS to reduce query volume 75%, increase QPS 4x, and cut CPU and memory by 80% and 50%",
-        "Built GitOps-based federation release automation, credential rotation automation, and clear written practices for remote infrastructure work",
+        "Built GitOps-based federation release automation and credential rotation automation",
       ],
     },
     {
@@ -358,7 +358,7 @@ export const DATA = {
       bullets: [
         "Built core backend platform features for business intelligence products, including secured artifact repository architecture, security infrastructure, and open-source integrations",
         "Led product security components and wrote public documentation used by customer-facing teams",
-        "Contributed to Spring Security, Apache Jackrabbit, and CloudInit; presented at SpringOne Americas",
+        "Contributed to Spring Security, Apache Jackrabbit, and CloudInit",
       ],
     },
     {

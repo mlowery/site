@@ -125,7 +125,7 @@ export const DATA = {
     {
       label: "Annual vendor cost eliminated",
       value: "$200K+",
-      description: "Led registry migration from proprietary to open-source infrastructure.",
+      description: "Led container registry migration from proprietary to open-source infrastructure.",
     },
     {
       label: "DNS query volume reduction",

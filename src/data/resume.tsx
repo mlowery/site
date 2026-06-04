@@ -57,7 +57,7 @@ export const DATA = {
       enabled: true,
       label: "Contact",
       heading: "Get in Touch",
-      text: "Looking for senior platform engineering work where scale and reliability matter. LinkedIn is the best place to reach me.",
+      text: "LinkedIn is the best place to reach me.",
     },
     praise: { order: 10, enabled: true, heading: "Kudos" },
   },
@@ -109,11 +109,8 @@ export const DATA = {
     {
       name: "Practices",
       skills: [
-        "Testing",
-        "Runbooks",
-        "Documentation",
         "Mentoring",
-        "Technical Writing",
+        "Technical writing",
       ],
     },
     {
@@ -174,14 +171,6 @@ export const DATA = {
             "Opened a Quay storage provider change adding `minimum_chunk_size_mb` configurability for RadosGW uploads.",
         },
         {
-          project: "Kubernetes Cluster Registry",
-          icon: "kubernetes",
-          title: "Cluster registry API server RBAC fix",
-          url: "https://github.com/kubernetes-retired/cluster-registry/pull/204",
-          detail:
-            "Corrected ClusterRole resources for the cluster registry API server so generated access rules matched API resource names.",
-        },
-        {
           project: "Kubernetes",
           icon: "kubernetes",
           title: "Kubelet pod status reason/message bug",
@@ -213,18 +202,6 @@ export const DATA = {
             "Merged a Trove service-catalog change that moved service endpoint discovery away from hard-coded URL configuration.",
         },
       ],
-    },
-  ],
-  speaking: [
-    {
-      event: "SpringOne Americas",
-      date: "Dec 2008",
-      topic: "Spring Security usage in Pentaho product architecture",
-    },
-    {
-      event: "OpenStack Trove Day",
-      date: "Aug 2014",
-      topic: "OpenStack Trove and database-as-a-service work",
     },
   ],
   praise: [
@@ -285,6 +262,7 @@ export const DATA = {
       bullets: [
         "Owned and operated Kubernetes control planes, etcd, DNS, federation, container registry, and platform automation at one of the industry's largest private Kubernetes fleets",
         "Led a container registry migration that eliminated six figures per year in vendor cost",
+        "Patched container registry upload code and tuned chunk size for 2x+ faster pushes",
         "Improved APIServer reliability with SRE partners, reducing pager volume 50%",
         "Rolled out operator-based automation across 100 etcd clusters",
         "Sharded federation syncing for multi-year scale runway",

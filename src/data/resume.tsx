@@ -221,6 +221,7 @@ export const DATA = {
       context: "Colleague feedback on mentorship and cross-team support",
     },
   ],
+  speaking: [],
   navbar: [
     { href: "/", icon: House, label: "Home" },
   ],

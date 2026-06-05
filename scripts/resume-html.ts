@@ -15,7 +15,7 @@ export function buildHtml(data: ResumeData): string {
   const { name, summary, contact, work, education, impact, openSource, projects } = data;
 
   const githubDisplay = contact.social.GitHub.url.replace('https://', '');
-  const linkedinDisplay = contact.social.LinkedIn.url.replace('https://', '');
+  const linkedinDisplay = contact.social.LinkedIn.url.replace('https://www.', '');
   const urlDisplay = (data as any).url.replace('https://', '') as string;
   const title = (data as any).title as string;
 

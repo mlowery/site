@@ -153,6 +153,10 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
   <div class="header-name">${esc(name)}</div>
   <div class="header-title">${esc(title)} &middot; Denver, CO</div>
   <div class="header-contact">
+    <a href="mailto:${esc(contact.email)}">${esc(contact.email)}</a>
+    &nbsp;&middot;&nbsp;
+    <a href="tel:${esc(contact.tel)}">${esc(contact.tel)}</a>
+    &nbsp;&middot;&nbsp;
     <a href="${esc(contact.social.GitHub.url)}">${esc(githubDisplay)}</a>
     &nbsp;&middot;&nbsp;
     <a href="${esc(contact.social.LinkedIn.url)}">${esc(linkedinDisplay)}</a>
@@ -184,6 +188,10 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
   <div class="header-name">${esc(name)}</div>
   <div class="header-title">${esc(title)} &middot; Denver, CO</div>
   <div class="header-contact">
+    <a href="mailto:${esc(contact.email)}">${esc(contact.email)}</a>
+    &nbsp;&middot;&nbsp;
+    <a href="tel:${esc(contact.tel)}">${esc(contact.tel)}</a>
+    &nbsp;&middot;&nbsp;
     <a href="${esc(contact.social.GitHub.url)}">${esc(githubDisplay)}</a>
     &nbsp;&middot;&nbsp;
     <a href="${esc(contact.social.LinkedIn.url)}">${esc(linkedinDisplay)}</a>

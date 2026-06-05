@@ -18,7 +18,8 @@ assert(html.includes(DATA.education[0].school), 'should include first school');
 assert(html.includes(DATA.openSource[0].highlights[0].title), 'should include first OS contribution');
 assert(html.includes(DATA.projects[0].title), 'should include first project title');
 assert(html.includes(DATA.projects[0].description), 'should include first project description');
-assert(!html.includes(DATA.contact.email), 'should not include email');
+assert(html.includes(DATA.contact.email), 'should include email');
+assert(html.includes(DATA.contact.tel), 'should include phone');
 assert(html.includes('github.com/mlowery'), 'should include GitHub URL');
 assert(html.includes('linkedin.com/in/matlowery'), 'should include LinkedIn URL');
 

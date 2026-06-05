@@ -227,7 +227,7 @@ export const DATA = {
   ],
   contact: {
     email: "mat@matlowery.com",
-    tel: "",
+    tel: "407-484-1603",
     social: {
       GitHub: {
         name: "GitHub",

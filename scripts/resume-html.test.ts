@@ -43,6 +43,11 @@ assert(humanHtml.includes('<div class="section-heading">Skills</div>'));
 assert(atsHtml.includes('<div class="section-heading">Skills</div>'));
 assert(atsHtml.includes('class="skills-list"'), 'ATS skills should use a single-column list');
 assert(!atsHtml.includes('class="skills-grid"'), 'ATS skills should exclude grid markup');
+assert(atsHtml.includes('<body class="ats">'), 'ATS resume should expose an ATS styling hook');
+assert(
+  humanHtml.indexOf('class="page-2-header"') < humanHtml.indexOf('<div class="section-heading">Education</div>'),
+  'Education should begin the intentional second-page content',
+);
 
 for (const title of [
   'Senior MTS, Software Engineer (Senior Staff)',

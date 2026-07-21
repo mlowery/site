@@ -178,9 +178,15 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
 .project-name-link:hover { text-decoration: underline; }
 .project-sep { color: #bbb; }
 .project-desc { color: #444; }
+.ats { font-size: 10px; line-height: 1.4; }
+.ats .header { margin-bottom: 10px; }
+.ats hr { margin: 10px 0; }
+.ats .section { margin-bottom: 10px; }
+.ats .section-heading { margin-bottom: 7px; }
+.ats .work-entry { margin-bottom: 7px; }
 </style>
 </head>
-<body>
+<body class="${target}">
 
 <div class="header">
   <div class="header-name">${esc(name)}</div>
@@ -219,11 +225,6 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
   ${workHtml}
 </div>
 
-<div class="section">
-  <div class="section-heading">Education</div>
-  ${educationHtml}
-</div>
-
 <div class="page-2-header">
   <div class="header-name">${esc(name)}</div>
   <div class="header-title">${esc(title)} &middot; Denver, CO</div>
@@ -240,6 +241,11 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
   </div>
 </div>
 <hr>
+
+<div class="section">
+  <div class="section-heading">Education</div>
+  ${educationHtml}
+</div>
 
 <div class="section">
   <div class="section-heading">Open Source</div>

@@ -2,6 +2,11 @@
 import type { DATA } from '../src/data/resume';
 
 type ResumeData = typeof DATA;
+export type ResumeTarget = 'human' | 'ats';
+
+type BuildHtmlOptions = {
+  target?: ResumeTarget;
+};
 
 function esc(s: string): string {
   return s
@@ -11,20 +16,41 @@ function esc(s: string): string {
     .replace(/"/g, '&quot;');
 }
 
-export function buildHtml(data: ResumeData): string {
-  const { name, summary, contact, work, education, impact, openSource, projects } = data;
+export function buildHtml(
+  data: ResumeData,
+  { target = 'human' }: BuildHtmlOptions = {},
+): string {
+  const { name, summary, contact, work, education, impact, skillGroups, openSource, projects } = data;
 
   const githubDisplay = contact.social.GitHub.url.replace('https://', '');
   const linkedinDisplay = contact.social.LinkedIn.url.replace('https://www.', '');
   const urlDisplay = (data as any).url.replace('https://', '') as string;
   const title = (data as any).title as string;
 
-  const impactHtml = impact.map(item => `
-    <div class="impact-card">
-      <div class="impact-value">${esc(item.value)}</div>
-      <div class="impact-label">${esc(item.label)}</div>
-      <div class="impact-desc">${esc(item.description)}</div>
-    </div>`).join('');
+  const impactHtml = target === 'ats'
+    ? `<ul class="impact-list">${impact.map(item => `
+      <li class="impact-item">
+        <strong>${esc(item.value)} ${esc(item.label)}</strong>: ${esc(item.description)}
+      </li>`).join('')}
+    </ul>`
+    : `<div class="impact-grid">${impact.map(item => `
+      <div class="impact-card">
+        <div class="impact-value">${esc(item.value)}</div>
+        <div class="impact-label">${esc(item.label)}</div>
+        <div class="impact-desc">${esc(item.description)}</div>
+      </div>`).join('')}
+    </div>`;
+
+  const skillsHtml = target === 'ats'
+    ? `<ul class="skills-list">${skillGroups.map(group => `
+      <li class="skills-item"><strong>${esc(group.name)}:</strong> ${group.skills.map(esc).join(', ')}</li>`).join('')}
+    </ul>`
+    : `<div class="skills-grid">${skillGroups.map(group => `
+      <div class="skills-group">
+        <span class="skills-name">${esc(group.name)}:</span>
+        <span class="skills-values">${group.skills.map(esc).join(', ')}</span>
+      </div>`).join('')}
+    </div>`;
 
   const workHtml = work.map(job => {
     const phrases: string[] = [...(job as any).bullets];
@@ -111,6 +137,12 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
 .impact-value { font-size: 17px; font-weight: 700; }
 .impact-label { font-size: 8.5px; font-weight: 600; color: #555; margin-top: 2px; }
 .impact-desc { font-size: 8px; color: #888; margin-top: 3px; line-height: 1.3; }
+.impact-list, .skills-list { padding-left: 18px; }
+.impact-item, .skills-item { margin-bottom: 5px; }
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 14px; }
+.skills-group { font-size: 9px; line-height: 1.35; }
+.skills-name { font-weight: 700; }
+.skills-values { color: #444; }
 .work-entry { margin-bottom: 9px; }
 .work-header {
   display: flex;
@@ -174,7 +206,12 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
 
 <div class="section">
   <div class="section-heading">Impact</div>
-  <div class="impact-grid">${impactHtml}</div>
+  ${impactHtml}
+</div>
+
+<div class="section">
+  <div class="section-heading">Skills</div>
+  ${skillsHtml}
 </div>
 
 <div class="section">

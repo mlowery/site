@@ -223,7 +223,8 @@ export const DATA = {
   ],
   speaking: [],
   navbar: [
-    { href: "/", icon: House, label: "Home" },
+    { href: "/", icon: House, label: "Home", enabled: true },
+    { href: "/blog", icon: Library, label: "Blog", enabled: false },
   ],
   contact: {
     email: "mat@matlowery.com",

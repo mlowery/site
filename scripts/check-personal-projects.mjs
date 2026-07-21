@@ -4,23 +4,29 @@ const resumeSource = readFileSync("src/data/resume.tsx", "utf8");
 
 const expectedProjects = [
   {
-    title: "fotofolder",
-    href: "https://github.com/mlowery/fotofolder",
-    icon: "Camera",
+    title: "emcee",
+    href: "https://github.com/mlowery/emcee",
+    icon: "Mic",
     description:
-      "fotofolder is a Python CLI for copying photo and video archives into a deterministic, date-based folder layout.",
+      "Multi-cluster command runner for running commands in parallel across Kubernetes clusters.",
   },
   {
-    title: "usher",
-    href: "https://github.com/mlowery/usher",
-    icon: "Hand",
-    description: "(U)niversal (S)hell (H)istory - er",
+    title: "sticky-kubeconfig",
+    href: "https://github.com/mlowery/sticky-kubeconfig",
+    icon: "Terminal",
+    description: "Shell helper for keeping a unique kubeconfig per terminal session.",
   },
   {
-    title: "kworx",
-    href: "https://github.com/mlowery/kworx",
-    icon: "Dumbbell",
-    description: "Multi-threaded kubectl (kubectl with workers)",
+    title: "executable-image",
+    href: "https://github.com/mlowery/executable-image",
+    icon: "Play",
+    description: "Shell tooling to run Docker images as executables.",
+  },
+  {
+    title: "kubectl-watchhook",
+    href: "https://github.com/mlowery/kubectl-watchhook",
+    icon: "Binoculars",
+    description: "kubectl plugin to watch Kubernetes objects and call a command per watch event.",
   },
 ];
 

@@ -59,6 +59,16 @@ assert(atsHtml.includes('class="skills-list"'), 'ATS skills should use a single-
 assert(!atsHtml.includes('class="skills-grid"'), 'ATS skills should exclude grid markup');
 assert(humanHtml.includes('class="skill-pill"'), 'human skills should use pill tags');
 assert(!atsHtml.includes('class="skill-pill"'), 'ATS skills should exclude pill tags');
+assert(
+  humanHtml.indexOf('<div class="section-heading">Education</div>')
+    < humanHtml.indexOf('<div class="section-heading">Skills</div>'),
+  'human Skills should follow Education on page 2',
+);
+assert(
+  atsHtml.indexOf('<div class="section-heading">Skills</div>')
+    < atsHtml.indexOf('<div class="section-heading">Work Experience</div>'),
+  'ATS Skills should remain on page 1 before Work Experience',
+);
 
 for (const title of [
   'Senior MTS, Software Engineer (Senior Staff)',
@@ -135,7 +145,7 @@ const skillsHtml = target === 'ats'
     </div>`;
 ```
 
-Replace the current hard-coded `<div class="impact-grid">...</div>` with `${impactHtml}` and insert the standalone Skills section immediately after Impact:
+Replace the current hard-coded `<div class="impact-grid">...</div>` with `${impactHtml}`. Render the standalone ATS Skills section immediately after Impact:
 
 ```html
 <div class="section">
@@ -144,12 +154,14 @@ Replace the current hard-coded `<div class="impact-grid">...</div>` with `${impa
 </div>
 ```
 
+Render that block only when `target === 'ats'`. Render the same block for `target === 'human'` immediately after the page-2 Education section.
+
 Add compact human styling and plain single-column list styling:
 
 ```css
 .impact-list, .skills-list { padding-left: 18px; }
 .impact-item, .skills-item { margin-bottom: 5px; }
-.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 14px; }
+.skills-grid { display: grid; grid-template-columns: 1fr; gap: 4px; }
 .skills-group { font-size: 9px; line-height: 1.35; }
 .skills-name { font-weight: 700; margin-bottom: 3px; }
 .skill-pills { display: flex; flex-wrap: wrap; gap: 3px; }

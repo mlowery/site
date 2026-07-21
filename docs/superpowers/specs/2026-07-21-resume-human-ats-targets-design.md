@@ -28,7 +28,7 @@ The existing `skillGroups` collection is the sole content source for the new sta
 
 Keep one `buildHtml` renderer with a target option. Shared sections use the same code and data. Small target-specific render functions produce the Impact and Skills markup, and target-specific CSS controls presentation without duplicating the complete document.
 
-The human target preserves the current visual hierarchy and four-card Impact grid. Its Skills section uses a compact two-column group layout. Each group has a strong label followed by naturally wrapped, pill-shaped skill tags with a very light gray-lavender fill, subtle border, compact padding, and no icons or shadows.
+The human target preserves the current visual hierarchy and four-card Impact grid. Its Skills section appears on page 2 immediately after Education and uses one full-width column. Each group has a strong label followed by naturally wrapped, pill-shaped skill tags with a very light gray-lavender fill, subtle border, compact padding, and no icons or shadows.
 
 The ATS target prioritizes semantic reading order and plain text extraction:
 
@@ -58,6 +58,7 @@ Extend the HTML tests to cover observable output rather than only string smoke c
 - ATS output contains the single-column Impact list structure and excludes the Impact grid class.
 - ATS Skills markup excludes grid and multi-column classes.
 - Human Skills markup includes a pill element for every skill; ATS markup excludes pill elements.
+- Human Skills follows Education on page 2; ATS Skills remains on page 1 after Impact.
 - Shared work output contains all three parenthetical title mappings.
 - Existing resume content and contact assertions continue to pass.
 

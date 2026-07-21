@@ -4,10 +4,12 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { DATA } from '../src/data/resume';
 import { buildHtml } from './resume-html';
+import { getResumeTarget } from './resume-target';
 
 async function main() {
-  const html = buildHtml(DATA);
-  const outPath = resolve('dist/resume.pdf');
+  const { target, outputPath } = getResumeTarget(process.argv[2]);
+  const html = buildHtml(DATA, { target });
+  const outPath = resolve(outputPath);
   mkdirSync(resolve('dist'), { recursive: true });
 
   const browser = await puppeteer.launch({ headless: true });

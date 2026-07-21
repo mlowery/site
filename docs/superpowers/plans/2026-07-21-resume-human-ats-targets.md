@@ -60,9 +60,9 @@ assert(!atsHtml.includes('class="skills-grid"'), 'ATS skills should exclude grid
 assert(humanHtml.includes('class="skill-pill"'), 'human skills should use pill tags');
 assert(!atsHtml.includes('class="skill-pill"'), 'ATS skills should exclude pill tags');
 assert(
-  humanHtml.indexOf('<div class="section-heading">Education</div>')
-    < humanHtml.indexOf('<div class="section-heading">Skills</div>'),
-  'human Skills should follow Education on page 2',
+  humanHtml.indexOf('<div class="section-heading">Skills</div>')
+    < humanHtml.indexOf('<div class="section-heading">Work Experience</div>'),
+  'human Skills should appear before Work Experience',
 );
 assert(
   atsHtml.indexOf('<div class="section-heading">Skills</div>')
@@ -154,7 +154,7 @@ Replace the current hard-coded `<div class="impact-grid">...</div>` with `${impa
 </div>
 ```
 
-Render that block only when `target === 'ats'`. Render the same block for `target === 'human'` immediately after the page-2 Education section.
+Render that block for both targets immediately after Impact. The markup inside the section remains target-specific.
 
 Add compact human styling and plain single-column list styling:
 
@@ -162,8 +162,8 @@ Add compact human styling and plain single-column list styling:
 .impact-list, .skills-list { padding-left: 18px; }
 .impact-item, .skills-item { margin-bottom: 5px; }
 .skills-grid { display: grid; grid-template-columns: 1fr; gap: 4px; }
-.skills-group { font-size: 9px; line-height: 1.35; }
-.skills-name { font-weight: 700; margin-bottom: 3px; }
+.skills-group { display: flex; align-items: baseline; gap: 5px; font-size: 9px; line-height: 1.35; }
+.skills-name { font-weight: 700; white-space: nowrap; }
 .skill-pills { display: flex; flex-wrap: wrap; gap: 3px; }
 .skill-pill { background: #f7f7fc; border: 1px solid #e4e4f0; border-radius: 999px; color: #444; padding: 1px 5px; }
 ```

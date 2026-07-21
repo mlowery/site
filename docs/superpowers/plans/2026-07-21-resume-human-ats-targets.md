@@ -57,6 +57,8 @@ assert(humanHtml.includes('<div class="section-heading">Skills</div>'));
 assert(atsHtml.includes('<div class="section-heading">Skills</div>'));
 assert(atsHtml.includes('class="skills-list"'), 'ATS skills should use a single-column list');
 assert(!atsHtml.includes('class="skills-grid"'), 'ATS skills should exclude grid markup');
+assert(humanHtml.includes('class="skill-pill"'), 'human skills should use pill tags');
+assert(!atsHtml.includes('class="skill-pill"'), 'ATS skills should exclude pill tags');
 
 for (const title of [
   'Senior MTS, Software Engineer (Senior Staff)',
@@ -127,8 +129,8 @@ const skillsHtml = target === 'ats'
     </ul>`
   : `<div class="skills-grid">${skillGroups.map(group => `
       <div class="skills-group">
-        <span class="skills-name">${esc(group.name)}:</span>
-        <span class="skills-values">${group.skills.map(esc).join(', ')}</span>
+        <div class="skills-name">${esc(group.name)}</div>
+        <div class="skill-pills">${group.skills.map(skill => `<span class="skill-pill">${esc(skill)}</span>`).join('')}</div>
       </div>`).join('')}
     </div>`;
 ```
@@ -149,8 +151,9 @@ Add compact human styling and plain single-column list styling:
 .impact-item, .skills-item { margin-bottom: 5px; }
 .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 14px; }
 .skills-group { font-size: 9px; line-height: 1.35; }
-.skills-name { font-weight: 700; }
-.skills-values { color: #444; }
+.skills-name { font-weight: 700; margin-bottom: 3px; }
+.skill-pills { display: flex; flex-wrap: wrap; gap: 3px; }
+.skill-pill { background: #f7f7fc; border: 1px solid #e4e4f0; border-radius: 999px; color: #444; padding: 1px 5px; }
 ```
 
 - [ ] **Step 5: Run the HTML test and verify GREEN**

@@ -45,12 +45,17 @@ export function buildHtml(
     ? `<ul class="skills-list">${skillGroups.map(group => `
       <li class="skills-item"><strong>${esc(group.name)}:</strong> ${group.skills.map(esc).join(', ')}</li>`).join('')}
     </ul>`
-    : `<div class="skills-grid">${skillGroups.map(group => `
+  : `<div class="skills-grid">${skillGroups.map(group => `
       <div class="skills-group">
-        <span class="skills-name">${esc(group.name)}:</span>
-        <span class="skills-values">${group.skills.map(esc).join(', ')}</span>
+        <div class="skills-name">${esc(group.name)}</div>
+        <div class="skill-pills">${group.skills.map(skill => `<span class="skill-pill">${esc(skill)}</span>`).join('')}</div>
       </div>`).join('')}
     </div>`;
+
+  const skillsSectionHtml = `<div class="section">
+  <div class="section-heading">Skills</div>
+  ${skillsHtml}
+</div>`;
 
   const workHtml = work.map(job => {
     const phrases: string[] = [...(job as any).bullets];
@@ -139,10 +144,18 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
 .impact-desc { font-size: 8px; color: #888; margin-top: 3px; line-height: 1.3; }
 .impact-list, .skills-list { padding-left: 18px; }
 .impact-item, .skills-item { margin-bottom: 5px; }
-.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 14px; }
+.skills-grid { display: grid; grid-template-columns: 1fr; gap: 4px; }
 .skills-group { font-size: 9px; line-height: 1.35; }
-.skills-name { font-weight: 700; }
-.skills-values { color: #444; }
+.skills-name { font-weight: 700; margin-bottom: 3px; }
+.skill-pills { display: flex; flex-wrap: wrap; gap: 2px; }
+.skill-pill {
+  background: #f7f7fc;
+  border: 1px solid #e4e4f0;
+  border-radius: 999px;
+  color: #444;
+  font-size: 8px;
+  padding: 0 4px;
+}
 .work-entry { margin-bottom: 9px; }
 .work-header {
   display: flex;
@@ -215,10 +228,7 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
   ${impactHtml}
 </div>
 
-<div class="section">
-  <div class="section-heading">Skills</div>
-  ${skillsHtml}
-</div>
+${target === 'ats' ? skillsSectionHtml : ''}
 
 <div class="section">
   <div class="section-heading">Work Experience</div>
@@ -246,6 +256,8 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
   <div class="section-heading">Education</div>
   ${educationHtml}
 </div>
+
+${target === 'human' ? skillsSectionHtml : ''}
 
 <div class="section">
   <div class="section-heading">Open Source</div>

@@ -43,7 +43,23 @@ assert(humanHtml.includes('<div class="section-heading">Skills</div>'));
 assert(atsHtml.includes('<div class="section-heading">Skills</div>'));
 assert(atsHtml.includes('class="skills-list"'), 'ATS skills should use a single-column list');
 assert(!atsHtml.includes('class="skills-grid"'), 'ATS skills should exclude grid markup');
+assert.equal(
+  humanHtml.match(/class="skill-pill"/g)?.length,
+  DATA.skillGroups.flatMap(group => group.skills).length,
+  'human resume should render one pill per skill',
+);
+assert(!atsHtml.includes('class="skill-pill"'), 'ATS skills should exclude pill tags');
 assert(atsHtml.includes('<body class="ats">'), 'ATS resume should expose an ATS styling hook');
+assert(
+  humanHtml.indexOf('<div class="section-heading">Education</div>')
+    < humanHtml.indexOf('<div class="section-heading">Skills</div>'),
+  'human Skills should follow Education on page 2',
+);
+assert(
+  atsHtml.indexOf('<div class="section-heading">Skills</div>')
+    < atsHtml.indexOf('<div class="section-heading">Work Experience</div>'),
+  'ATS Skills should remain on page 1 before Work Experience',
+);
 assert(
   humanHtml.indexOf('class="page-2-header"') < humanHtml.indexOf('<div class="section-heading">Education</div>'),
   'Education should begin the intentional second-page content',

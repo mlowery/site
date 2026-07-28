@@ -51,9 +51,9 @@ assert.equal(
 assert(!atsHtml.includes('class="skill-pill"'), 'ATS skills should exclude pill tags');
 assert(atsHtml.includes('<body class="ats">'), 'ATS resume should expose an ATS styling hook');
 assert(
-  humanHtml.indexOf('<div class="section-heading">Education</div>')
-    < humanHtml.indexOf('<div class="section-heading">Skills</div>'),
-  'human Skills should follow Education on page 2',
+  humanHtml.indexOf('<div class="section-heading">Skills</div>')
+    < humanHtml.indexOf('<div class="section-heading">Work Experience</div>'),
+  'human Skills should appear before Work Experience',
 );
 assert(
   atsHtml.indexOf('<div class="section-heading">Skills</div>')

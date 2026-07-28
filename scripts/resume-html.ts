@@ -145,8 +145,8 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
 .impact-list, .skills-list { padding-left: 18px; }
 .impact-item, .skills-item { margin-bottom: 5px; }
 .skills-grid { display: grid; grid-template-columns: 1fr; gap: 4px; }
-.skills-group { font-size: 9px; line-height: 1.35; }
-.skills-name { font-weight: 700; margin-bottom: 3px; }
+.skills-group { display: flex; align-items: baseline; gap: 5px; font-size: 9px; line-height: 1.35; }
+.skills-name { font-weight: 700; white-space: nowrap; }
 .skill-pills { display: flex; flex-wrap: wrap; gap: 2px; }
 .skill-pill {
   background: #f7f7fc;
@@ -191,6 +191,9 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
 .project-name-link:hover { text-decoration: underline; }
 .project-sep { color: #bbb; }
 .project-desc { color: #444; }
+.human .section { margin-bottom: 12px; }
+.human .work-entry { margin-bottom: 7px; }
+.human .work-desc { font-size: 10px; line-height: 1.4; }
 .ats { font-size: 10px; line-height: 1.4; }
 .ats .header { margin-bottom: 10px; }
 .ats hr { margin: 10px 0; }
@@ -228,7 +231,7 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
   ${impactHtml}
 </div>
 
-${target === 'ats' ? skillsSectionHtml : ''}
+${skillsSectionHtml}
 
 <div class="section">
   <div class="section-heading">Work Experience</div>
@@ -256,8 +259,6 @@ ${target === 'ats' ? skillsSectionHtml : ''}
   <div class="section-heading">Education</div>
   ${educationHtml}
 </div>
-
-${target === 'human' ? skillsSectionHtml : ''}
 
 <div class="section">
   <div class="section-heading">Open Source</div>

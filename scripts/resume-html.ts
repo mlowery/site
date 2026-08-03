@@ -59,7 +59,9 @@ export function buildHtml(
 
   const workHtml = work.map(job => {
     const phrases: string[] = [...(job as any).bullets];
-    const descHtml = phrases.map(p => esc(p)).join(' <span class="bullet-sep">&bull;</span> ');
+    const descHtml = `<ul class="work-bullets">${phrases.map(phrase => `
+        <li class="work-bullet">${esc(phrase)}</li>`).join('')}
+      </ul>`;
     return `
     <div class="work-entry">
       <div class="work-header">
@@ -70,7 +72,7 @@ export function buildHtml(
         </div>
         <span class="work-dates">${esc(job.start)} – ${job.end ? esc(job.end) : 'Present'}</span>
       </div>
-      <p class="work-desc">${descHtml}</p>
+      ${descHtml}
     </div>`;
   }).join('');
 
@@ -167,8 +169,8 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
 .work-sep { color: #bbb; }
 .work-title { color: #555; }
 .work-dates { font-size: 9px; color: #888; white-space: nowrap; flex-shrink: 0; }
-.work-desc { color: #444; margin-top: 3px; }
-.bullet-sep { color: #4f46e5; font-weight: 700; margin: 0 3px; }
+.work-bullets { color: #444; margin-top: 3px; padding-left: 16px; }
+.work-bullet { margin-bottom: 1px; }
 .edu-entry {
   display: flex;
   justify-content: space-between;
@@ -192,8 +194,8 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
 .project-sep { color: #bbb; }
 .project-desc { color: #444; }
 .human .section { margin-bottom: 12px; }
-.human .work-entry { margin-bottom: 7px; }
-.human .work-desc { font-size: 10px; line-height: 1.4; }
+.human .work-entry { margin-bottom: 5px; }
+.human .work-bullets { font-size: 9.5px; line-height: 1.25; }
 .ats { font-size: 10px; line-height: 1.4; }
 .ats .header { margin-bottom: 10px; }
 .ats hr { margin: 10px 0; }

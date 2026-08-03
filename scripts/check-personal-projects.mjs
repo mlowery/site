@@ -4,13 +4,6 @@ const resumeSource = readFileSync("src/data/resume.tsx", "utf8");
 
 const expectedProjects = [
   {
-    title: "emcee",
-    href: "https://github.com/mlowery/emcee",
-    icon: "Mic",
-    description:
-      "Multi-cluster command runner for running commands in parallel across Kubernetes clusters.",
-  },
-  {
     title: "sticky-kubeconfig",
     href: "https://github.com/mlowery/sticky-kubeconfig",
     icon: "Terminal",
@@ -22,13 +15,9 @@ const expectedProjects = [
     icon: "Play",
     description: "Shell tooling to run Docker images as executables.",
   },
-  {
-    title: "kubectl-watchhook",
-    href: "https://github.com/mlowery/kubectl-watchhook",
-    icon: "Binoculars",
-    description: "kubectl plugin to watch Kubernetes objects and call a command per watch event.",
-  },
 ];
+
+const removedProjects = ["emcee", "kubectl-watchhook"];
 
 for (const project of expectedProjects) {
   if (!resumeSource.includes(`title: "${project.title}"`)) {
@@ -45,5 +34,11 @@ for (const project of expectedProjects) {
 
   if (!resumeSource.includes(`description: "${project.description}"`)) {
     throw new Error(`Missing GitHub-based description for ${project.title}`);
+  }
+}
+
+for (const title of removedProjects) {
+  if (resumeSource.includes(`title: "${title}"`)) {
+    throw new Error(`Removed project still present: ${title}`);
   }
 }

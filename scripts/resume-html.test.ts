@@ -5,6 +5,8 @@ import { buildHtml } from './resume-html';
 
 const humanHtml = buildHtml(DATA, { target: 'human' });
 const atsHtml = buildHtml(DATA, { target: 'ats' });
+const expectedTitle = 'Senior Platform Engineer | Kubernetes, Cloud Infrastructure, Developer Productivity';
+const workBulletCount = DATA.work.flatMap(job => job.bullets).length;
 
 assert(humanHtml.startsWith('<!DOCTYPE html>'), 'should start with doctype');
 assert(humanHtml.includes(DATA.name), `should include name: ${DATA.name}`);
@@ -23,6 +25,20 @@ assert(humanHtml.includes(DATA.contact.email), 'should include email');
 assert(humanHtml.includes(DATA.contact.tel), 'should include phone');
 assert(humanHtml.includes('github.com/mlowery'), 'should include GitHub URL');
 assert(humanHtml.includes('linkedin.com/in/matlowery'), 'should include LinkedIn URL');
+assert(humanHtml.includes(expectedTitle), 'human resume should include platform engineering title');
+assert(atsHtml.includes(expectedTitle), 'ATS resume should include platform engineering title');
+assert(!humanHtml.includes('AI-assisted engineering'), 'human resume should exclude AI-assisted engineering');
+assert(!atsHtml.includes('AI-assisted engineering'), 'ATS resume should exclude AI-assisted engineering');
+assert(!humanHtml.includes('Databases'), 'human resume should exclude Databases skills');
+assert(!atsHtml.includes('Databases'), 'ATS resume should exclude Databases skills');
+assert.equal(humanHtml.match(/class="work-bullet"/g)?.length, workBulletCount);
+assert.equal(atsHtml.match(/class="work-bullet"/g)?.length, workBulletCount);
+assert(!humanHtml.includes('class="bullet-sep"'), 'human resume should exclude inline bullet separators');
+assert(!atsHtml.includes('class="bullet-sep"'), 'ATS resume should exclude inline bullet separators');
+assert(!humanHtml.includes('kubectl-watchhook'), 'human resume should exclude kubectl-watchhook');
+assert(!atsHtml.includes('kubectl-watchhook'), 'ATS resume should exclude kubectl-watchhook');
+assert(!humanHtml.includes('emcee'), 'human resume should exclude emcee');
+assert(!atsHtml.includes('emcee'), 'ATS resume should exclude emcee');
 
 assert(humanHtml.includes('class="impact-grid"'), 'human resume should use impact grid');
 assert(humanHtml.includes('class="impact-card"'), 'human resume should use impact cards');

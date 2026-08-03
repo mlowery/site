@@ -1,10 +1,7 @@
 import { Icons } from "@/components/icons";
 import {
-  Binoculars,
-  GitBranch,
   House,
   Library,
-  Mic,
   Play,
   Terminal,
 } from "lucide-react";
@@ -16,7 +13,7 @@ import { Kubernetes } from "@/components/ui/svgs/kubernetes";
 export const DATA = {
   name: "Mat Lowery",
   initials: "ML",
-  title: "Software Engineer",
+  title: "Senior Platform Engineer | Kubernetes, Cloud Infrastructure, Developer Productivity",
   url: "https://matlowery.com",
   location: "Denver Metropolitan Area",
   locationLink: "https://www.google.com/maps/place/Denver,+CO",
@@ -84,6 +81,7 @@ export const DATA = {
         "OCI container registries",
         "Quay",
         "API Priority & Fairness",
+        "etcd",
       ],
     },
     {
@@ -99,10 +97,6 @@ export const DATA = {
       ],
     },
     {
-      name: "Databases",
-      skills: ["MySQL", "etcd", "Redis"],
-    },
-    {
       name: "Tools",
       skills: ["Jira", "Confluence", "PagerDuty"],
     },
@@ -112,10 +106,6 @@ export const DATA = {
         "Mentoring",
         "Technical writing",
       ],
-    },
-    {
-      name: "AI-assisted engineering",
-      skills: ["Codex", "Gemini", "Claude"],
     },
   ],
   impact: [
@@ -368,24 +358,6 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "emcee",
-      href: "https://github.com/mlowery/emcee",
-      dates: "",
-      active: true,
-      description: "Multi-cluster command runner for running commands in parallel across Kubernetes clusters.",
-      technologies: ["Go", "Kubernetes", "Concurrency"],
-      icon: <Mic size={16} />,
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/mlowery/emcee",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
-    {
       title: "sticky-kubeconfig",
       href: "https://github.com/mlowery/sticky-kubeconfig",
       dates: "",
@@ -415,24 +387,6 @@ export const DATA = {
         {
           type: "Source",
           href: "https://github.com/mlowery/executable-image",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "kubectl-watchhook",
-      href: "https://github.com/mlowery/kubectl-watchhook",
-      dates: "",
-      active: true,
-      description: "kubectl plugin to watch Kubernetes objects and call a command per watch event.",
-      technologies: ["Kubernetes", "kubectl", "Go"],
-      icon: <Binoculars size={16} />,
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/mlowery/kubectl-watchhook",
           icon: <Icons.github className="size-3" />,
         },
       ],

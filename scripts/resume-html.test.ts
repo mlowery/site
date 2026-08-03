@@ -82,9 +82,9 @@ assert(
 );
 
 for (const title of [
-  'Senior MTS, Software Engineer (Senior Staff)',
-  'MTS 2, Software Engineer (Staff)',
-  'MTS 1, Software Engineer (Senior)',
+  'Senior MTS, Software Engineer (Senior Staff equivalent)',
+  'MTS 2, Software Engineer (Staff equivalent)',
+  'MTS 1, Software Engineer (Senior equivalent)',
 ]) {
   assert(humanHtml.includes(title), `human resume should include title: ${title}`);
   assert(atsHtml.includes(title), `ATS resume should include title: ${title}`);

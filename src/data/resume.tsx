@@ -202,8 +202,13 @@ export const DATA = {
     },
     {
       quote:
-        "You have communicated super clearly and set proper and reasonable expectations for your teammates.",
-      context: "Colleague feedback on ambiguous infrastructure work",
+        "Mat combines strong hands-on coding skills with top-notch operational discipline...",
+      context: "Colleague feedback on hands-on engineering and operational excellence",
+    },
+    {
+      quote:
+        "What sets Mat apart is his ownership mindset. When incidents hit, he was always first on the line — and he didn't stop at resolution. He dug into root causes and shipped permanent fixes, systematically eliminating entire failure classes.",
+      context: "Colleague feedback on incident ownership and systematic reliability improvements",
     },
     {
       quote:

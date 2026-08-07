@@ -36,6 +36,7 @@ export const DATA = {
       heading: "Personal Projects",
       text: "",
     },
+    outsideWork: { order: 10.7, enabled: true, heading: "Outside Work" },
     hackathons: {
       order: 10,
       enabled: false,
@@ -398,6 +399,11 @@ export const DATA = {
       image: "",
       video: "",
     },
+  ],
+  outsideWork: [
+    { label: "International travel", icon: "plane" },
+    { label: "Cooking across cuisines", icon: "cooking-pot" },
+    { label: "Strength training & HIIT", icon: "dumbbell" },
   ],
   hackathons: [],
 } as const;

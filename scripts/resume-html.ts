@@ -20,7 +20,7 @@ export function buildHtml(
   data: ResumeData,
   { target = 'human' }: BuildHtmlOptions = {},
 ): string {
-  const { name, summary, contact, work, education, impact, skillGroups, openSource, projects } = data;
+  const { name, summary, contact, work, education, impact, skillGroups, openSource, projects, outsideWork } = data;
 
   const githubDisplay = contact.social.GitHub.url.replace('https://', '');
   const linkedinDisplay = contact.social.LinkedIn.url.replace('https://www.', '');
@@ -56,6 +56,13 @@ export function buildHtml(
   <div class="section-heading">Skills</div>
   ${skillsHtml}
 </div>`;
+
+  const outsideWorkSectionHtml = target === 'human'
+    ? `<div class="section outside-work-section">
+  <div class="section-heading">Outside Work</div>
+  <div class="outside-work-list">${outsideWork.map(item => esc(item.label)).join(' &nbsp;&middot;&nbsp; ')}</div>
+</div>`
+    : '';
 
   const workHtml = work.map(job => {
     const phrases: string[] = [...(job as any).bullets];
@@ -193,6 +200,7 @@ hr { border: none; border-top: 1px solid #e0e0e8; margin: 12px 0; }
 .project-name-link:hover { text-decoration: underline; }
 .project-sep { color: #bbb; }
 .project-desc { color: #444; }
+.outside-work-list { color: #444; font-size: 9.5px; }
 .human .section { margin-bottom: 12px; }
 .human .work-entry { margin-bottom: 5px; }
 .human .work-bullets { font-size: 9.5px; line-height: 1.25; }
@@ -271,6 +279,8 @@ ${skillsSectionHtml}
   <div class="section-heading">Personal Projects</div>
   ${projectsHtml}
 </div>
+
+${outsideWorkSectionHtml}
 
 </body>
 </html>`;

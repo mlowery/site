@@ -81,6 +81,19 @@ assert(
   'Education should begin the intentional second-page content',
 );
 
+assert(humanHtml.includes('<div class="section-heading">Outside Work</div>'));
+for (const interest of DATA.outsideWork) {
+  const escapedLabel = interest.label.replaceAll('&', '&amp;');
+  assert(humanHtml.includes(escapedLabel), `human resume should include Outside Work interest: ${interest.label}`);
+  assert(!atsHtml.includes(escapedLabel), `ATS resume should exclude Outside Work interest: ${interest.label}`);
+}
+assert(!atsHtml.includes('Outside Work'), 'ATS resume should exclude the Outside Work section');
+assert(
+  humanHtml.indexOf('<div class="section-heading">Personal Projects</div>')
+    < humanHtml.indexOf('<div class="section-heading">Outside Work</div>'),
+  'human Outside Work should appear after Personal Projects',
+);
+
 for (const title of [
   'Senior MTS, Software Engineer (Senior Staff equivalent)',
   'MTS 2, Software Engineer (Staff equivalent)',

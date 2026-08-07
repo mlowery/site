@@ -114,54 +114,47 @@ git commit -m "feat: add outside work to human resume"
 ### Task 2: Website icon pills
 
 **Files:**
-- Create: `scripts/check-outside-work.mjs`
+- Create: `scripts/outside-work-web.test.tsx`
 - Modify: `src/components/HomePage.tsx`
 
 **Interfaces:**
 - Consumes: `DATA.sections.outsideWork` and `DATA.outsideWork`
 - Produces: homepage section `#outside-work`
 - Produces: `OutsideWorkIcon({ icon })` mapping `plane`, `cooking-pot`, and `dumbbell` to Lucide icons
-- Produces: `node scripts/check-outside-work.mjs`
+- Produces: a server-rendered homepage regression test
 
-- [ ] **Step 1: Write the failing website source check**
+- [ ] **Step 1: Write the failing website rendering test**
 
-Create `scripts/check-outside-work.mjs`:
+Create `scripts/outside-work-web.test.tsx`:
 
-```js
-import { readFileSync } from "node:fs";
+```tsx
+import assert from "node:assert/strict";
+import { renderToStaticMarkup } from "react-dom/server";
+import HomePage from "../src/components/HomePage";
 
-const dataSource = readFileSync("src/data/resume.tsx", "utf8");
-const homepageSource = readFileSync("src/components/HomePage.tsx", "utf8");
+const html = renderToStaticMarkup(<HomePage />);
 
-for (const [label, icon] of [
-  ["International travel", "plane"],
-  ["Cooking across cuisines", "cooking-pot"],
-  ["Strength training & HIIT", "dumbbell"],
+assert(html.includes('id="outside-work"'), "website should render the Outside Work section");
+assert(html.includes("Outside Work"), "website should render the Outside Work heading");
+for (const label of [
+  "International travel",
+  "Cooking across cuisines",
+  "Strength training &amp; HIIT",
 ]) {
-  if (!dataSource.includes(`{ label: "${label}", icon: "${icon}" }`)) {
-    throw new Error(`Missing Outside Work data: ${label} (${icon})`);
-  }
+  assert(html.includes(label), `website should render Outside Work interest: ${label}`);
 }
-
-for (const expected of [
-  'id="outside-work"',
-  "DATA.sections.outsideWork.heading",
-  "DATA.outsideWork.map",
-  "Plane",
-  "CookingPot",
-  "Dumbbell",
-]) {
-  if (!homepageSource.includes(expected)) {
-    throw new Error(`Missing website Outside Work implementation: ${expected}`);
-  }
-}
+assert.equal(
+  (html.match(/data-outside-work-icon=/g) ?? []).length,
+  3,
+  "website should render one icon for each Outside Work interest",
+);
 ```
 
 - [ ] **Step 2: Run the website check and verify RED**
 
-Run: `node scripts/check-outside-work.mjs`
+Run: `npx tsx scripts/outside-work-web.test.tsx`
 
-Expected: FAIL with `Missing website Outside Work implementation: id="outside-work"`.
+Expected: FAIL with `website should render the Outside Work section`.
 
 - [ ] **Step 3: Add the icon mapping and section**
 
@@ -175,7 +168,7 @@ function OutsideWorkIcon({ icon }: { icon: (typeof DATA.outsideWork)[number]["ic
     dumbbell: Dumbbell,
   };
   const Icon = iconMap[icon];
-  return <Icon className="size-4 shrink-0" aria-hidden />;
+  return <Icon className="size-4 shrink-0" aria-hidden data-outside-work-icon={icon} />;
 }
 ```
 
@@ -210,14 +203,14 @@ The `order: 10.7` metadata places it after Projects (`10.5`) and before Contact 
 
 - [ ] **Step 4: Run the website check and build**
 
-Run: `node scripts/check-outside-work.mjs && npm run build`
+Run: `npx tsx scripts/outside-work-web.test.tsx && npm run build`
 
-Expected: source check exits 0 and Astro reports `Complete!`.
+Expected: rendering test exits 0 and Astro reports `Complete!`.
 
 - [ ] **Step 5: Commit the website behavior**
 
 ```bash
-git add src/components/HomePage.tsx scripts/check-outside-work.mjs
+git add src/components/HomePage.tsx scripts/outside-work-web.test.tsx
 git commit -m "feat: show outside work interests on website"
 ```
 
@@ -267,7 +260,7 @@ Run:
 
 ```bash
 npx tsx scripts/resume-html.test.ts
-node scripts/check-outside-work.mjs
+npx tsx scripts/outside-work-web.test.tsx
 npm run build
 npm run test:metadata
 git diff --check

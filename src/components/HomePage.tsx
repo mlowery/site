@@ -15,8 +15,10 @@ import {
   BookOpen,
   Boxes,
   Cloud,
+  CookingPot,
   Cpu,
   Database,
+  Dumbbell,
   FileText,
   FlaskConical,
   Gauge,
@@ -25,6 +27,7 @@ import {
   MapPin,
   Network,
   PenTool,
+  Plane,
   RefreshCw,
   Repeat2,
   Scale,
@@ -186,6 +189,17 @@ function OpenSourceIcon({ name }: { name?: string }) {
 
   const Icon = iconConfig.icon;
   return <Icon className="size-4 shrink-0" color={iconConfig.color} />;
+}
+
+function OutsideWorkIcon({ icon }: { icon: (typeof DATA.outsideWork)[number]["icon"] }) {
+  const iconMap = {
+    plane: Plane,
+    "cooking-pot": CookingPot,
+    dumbbell: Dumbbell,
+  };
+  const Icon = iconMap[icon];
+
+  return <Icon className="size-4 shrink-0" aria-hidden data-outside-work-icon={icon} />;
 }
 
 const sectionComponents: Record<string, React.ReactNode> = {
@@ -377,6 +391,28 @@ const sectionComponents: Record<string, React.ReactNode> = {
       <BlurFade delay={BLUR_FADE_DELAY * 11}>
         <ProjectsSection />
       </BlurFade>
+    </section>
+  ),
+  outsideWork: (
+    <section id="outside-work">
+      <div className="flex min-h-0 flex-col gap-y-4">
+        <BlurFade delay={BLUR_FADE_DELAY * 12}>
+          <h2 className="text-xl font-bold">{DATA.sections.outsideWork.heading}</h2>
+        </BlurFade>
+        <BlurFade delay={BLUR_FADE_DELAY * 13}>
+          <div className="flex flex-wrap gap-2">
+            {DATA.outsideWork.map((interest) => (
+              <div
+                key={interest.label}
+                className="flex h-8 w-fit items-center gap-2 rounded-xl border border-border bg-background px-3 ring-2 ring-border/20"
+              >
+                <OutsideWorkIcon icon={interest.icon} />
+                <span className="text-sm font-medium text-foreground">{interest.label}</span>
+              </div>
+            ))}
+          </div>
+        </BlurFade>
+      </div>
     </section>
   ),
   speaking: (

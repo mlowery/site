@@ -18,3 +18,11 @@ assert.equal(
   3,
   "website should render one icon for each Outside Work interest",
 );
+assert(
+  html.indexOf('id="projects"') < html.indexOf('id="outside-work"'),
+  "website should render Outside Work after Personal Projects",
+);
+assert(
+  html.indexOf('id="outside-work"') < html.indexOf('id="contact"'),
+  "website should render Outside Work before Contact",
+);

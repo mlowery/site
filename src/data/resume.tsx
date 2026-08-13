@@ -19,7 +19,7 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/Denver,+CO",
   description: "",
   summary:
-    "My goal is to provide infrastructure that is invisible—it just works and it makes doing the right thing easy. But if a developer needs to veer away from the common case, that's still possible. Day 1 for a platform is relatively simple. I've spent a decade on the rest: observing it, upgrading it, and hardening it against failure.",
+    "I've spent a decade owning production for one of the largest private Kubernetes fleets: watching it under real traffic, pushing upgrades through without breaking it, scaling it as demand grew, and turning every incident into another layer of hardening. That ownership experience, beyond the initial build, is where my judgment as a platform and infrastructure engineer comes from.",
   avatarUrl: "/headshot.png",
   ogImage: "/og_image.png",
   sections: {

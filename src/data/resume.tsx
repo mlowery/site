@@ -19,7 +19,7 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/Denver,+CO",
   description: "",
   summary:
-    "I build internal platforms and infrastructure for engineers who have better things to worry about. A decade at eBay's scale — Kubernetes control planes, etcd, DNS, container registries, federation — taught me that the gap between 'it works' and 'it's easy to operate' is where most of the real work lives.",
+    "My goal is to provide infrastructure that is invisible—it just works and it makes doing the right thing easy. But if a developer needs to veer away from the common case, that's still possible. Day 1 for a platform is relatively simple. I've spent a decade on the rest: observing it, upgrading it, and hardening it against failure.",
   avatarUrl: "/headshot.png",
   ogImage: "/og_image.png",
   sections: {

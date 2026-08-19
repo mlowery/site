@@ -19,7 +19,7 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/Denver,+CO",
   description: "",
   summary:
-    "I've spent a decade owning production for one of the largest private Kubernetes fleets: watching it under real traffic, pushing upgrades through without breaking it, scaling it as demand grew, and turning every incident into another layer of hardening. That ownership experience, beyond the initial build, is where my judgment as a platform and infrastructure engineer comes from.",
+    "I've spent a decade owning production for one of the largest private Kubernetes fleets, built and operated in Go: watching it under real traffic, pushing upgrades through without breaking it, scaling it as demand grew, and turning every incident into another layer of hardening. That ownership experience, beyond the initial build, is where my judgment as a platform and infrastructure engineer comes from.",
   avatarUrl: "/headshot.png",
   ogImage: "/og_image.png",
   sections: {
@@ -258,12 +258,12 @@ export const DATA = {
       start: "Feb 2022",
       end: "Apr 2026",
       bullets: [
-        "Owned and operated Kubernetes control planes, etcd, DNS, federation, container registry, and platform automation at one of the industry's largest private Kubernetes fleets",
+        "Owned and operated Kubernetes control planes (Go), etcd, DNS, federation, container registry, and platform automation at one of the industry's largest private Kubernetes fleets",
         "Led a container registry migration that eliminated six figures per year in vendor cost",
         "Patched container registry upload code and tuned chunk size for 2x+ faster pushes",
         "Improved APIServer reliability with SRE partners, reducing pager volume 50%",
-        "Rolled out operator-based automation across 100 etcd clusters",
-        "Sharded federation syncing for multi-year scale runway",
+        "Rolled out operator-based automation (Go) across 100 etcd clusters",
+        "Sharded federation syncing (Go) for multi-year scale runway",
       ],
     },
     {
@@ -278,7 +278,7 @@ export const DATA = {
       end: "Feb 2022",
       bullets: [
         "Built and operated eBay's Kubernetes platform including the control planes themselves on eBay compute and additionally cluster DNS, cluster federation, release automation, security hardening, and production support at 60+ clusters, 30K+ nodes, and 160K+ pods",
-        "Tuned CoreDNS to reduce query volume 75%, increase QPS 4x, and cut CPU and memory by 80% and 50%",
+        "Tuned CoreDNS (Go) to reduce query volume 75%, increase QPS 4x, and cut CPU and memory by 80% and 50%",
         "Built GitOps-based federation release and credential rotation automation",
       ],
     },
